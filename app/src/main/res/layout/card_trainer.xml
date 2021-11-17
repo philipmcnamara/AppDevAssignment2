@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    android:elevation="24dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="136dp"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/planTitle"
+            android:layout_width="188dp"
+            android:layout_height="51dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="-7dp"
+            android:textSize="30sp"
+            tools:text="A Title" />
+
+        <Button
+            android:id="@+id/menu_addRoutine"
+            android:layout_width="wrap_content"
+            android:layout_height="38dp"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="65dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="1dp"
+            android:background="@drawable/login_btn_bg"
+            android:paddingTop="1dp"
+            android:paddingBottom="1dp"
+            android:stateListAnimator="@null"
+            android:text="@string/menu_addRoutine"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16sp" />
+
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

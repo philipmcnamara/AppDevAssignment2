@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Workout Plans</string>
+    <string name="button_addPlan">Add Workout Plan</string>
+    <string name="hint_trainerTitle">Plan Title</string>
+    <string name="menu_addPlan">Add Plan</string>
+    <string name="menu_addRoutine">Add Routine</string>
+    <string name="menu_cancelPlan">Cancel</string>
+    <string name="menu_deletePlan">Delete</string>
+    <string name="menu_cancelRoutine">Cancel Routine</string>
+    <string name="button_addRoutine">Add Workout Routine</string>
+    <string name="hint_routineTitle">Routine Title</string>
+    <string name="hint_routineSet1">Routine Set</string>
+    <string name="enter_plan_title"> Please enter a Workout Plan Title </string>
+    <string name="save_plan"> Save Plan </string>
+    <string name="enter_routine_title"> Please enter a Routine Title </string>
+    <string name="save_routine"> Save Routine </string>
+    <string name="button_seeRoutine"> See Routine </string>
+    <string name="button_deletePlan"> Remove </string>
+    <string name="action_search"> Search </string>
+    <string name="search_hint">Type name…</string>
+    <string name="fittness_trainer">Fitness Trainer</string>
+    <string name="enter_user_name"> Please enter your User Name </string>
+    <string name="login">Login</string>
+    <string name="register">REGISTER</string>
+    <string name="email">Email</string>
+    <string name="login_error"> Login Failed....you suck </string>
+    <string name="password">Password</string>
+
+    <string name="open">open</string>
+    <string name="close">close</string>
+</resources>
