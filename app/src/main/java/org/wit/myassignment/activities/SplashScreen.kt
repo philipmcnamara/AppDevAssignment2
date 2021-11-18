@@ -21,7 +21,8 @@ class SplashScreen : AppCompatActivity() {
 
         // directs to the main page
         Handler().postDelayed({
-            val intent = Intent(this, TrainerListActivity::class.java)
+            val intent = Intent(this, Home::class.java)
+            //val intent = Intent(this, TrainerListActivity::class.java)
             startActivity(intent)
             finish()
         }, 3000)

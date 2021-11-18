@@ -10,17 +10,10 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.app.ActionBar
-import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.widget.SearchView
-import androidx.appcompat.widget.Toolbar
-import kotlinx.android.synthetic.main.activity_trainer_list.*
-import kotlinx.android.synthetic.main.content_main.*
 import org.wit.myassignment.R
 import org.wit.myassignment.adapters.PlanListener
 import org.wit.myassignment.adapters.TrainerAdapter
-import org.wit.myassignment.databinding.ContentMainBinding
-import org.wit.myassignment.models.PlanStore
 import org.wit.myassignment.models.TrainerModel
 import timber.log.Timber
 import timber.log.Timber.i
@@ -32,8 +25,7 @@ class TrainerListActivity : AppCompatActivity(), PlanListener {
 
 
     lateinit var app: MainApp
-    private lateinit var drawerBinding: ActivityTrainerListBinding
-    private lateinit var binding: ContentMainBinding
+    private lateinit var binding: ActivityTrainerListBinding
     private lateinit var refreshIntentLauncher : ActivityResultLauncher<Intent>
 
     var plansList: ArrayList<TrainerModel> = ArrayList()
@@ -41,13 +33,6 @@ class TrainerListActivity : AppCompatActivity(), PlanListener {
 
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-
-        /*
-        val toggle = ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open, R.string.close)
-        toggle.isDrawerIndicatorEnabled = true
-        drawerLayout.addDrawerListener(toggle)
-        toggle.syncState()
-        */
 
         menuInflater.inflate(R.menu.menu_main, menu)
         val item = menu?.findItem(R.id.action_search)
@@ -87,7 +72,7 @@ class TrainerListActivity : AppCompatActivity(), PlanListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ContentMainBinding.inflate(layoutInflater)
+        binding = ActivityTrainerListBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.toolbar.title = title
         setSupportActionBar(binding.toolbar)
@@ -96,10 +81,6 @@ class TrainerListActivity : AppCompatActivity(), PlanListener {
         binding.recyclerView.layoutManager = layoutManager
         loadPlans()
         registerRefreshCallback()
-
-
-
-
 
     }
 

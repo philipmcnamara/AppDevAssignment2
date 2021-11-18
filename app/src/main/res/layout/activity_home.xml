@@ -5,22 +5,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/drawerLayout"
     tools:context=".activities.Home">
 
 
-
-
-
-
+<include
+    layout="@layout/content_main"/>
 
     <com.google.android.material.navigation.NavigationView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:headerLayout="@layout/navigation_header"
         app:menu="@menu/navigation_menu"
-        android:layout_gravity="start"
         android:id="@+id/nav_menu"
-        />
+        android:layout_gravity="start"/>
+
 
 </androidx.drawerlayout.widget.DrawerLayout>
 
