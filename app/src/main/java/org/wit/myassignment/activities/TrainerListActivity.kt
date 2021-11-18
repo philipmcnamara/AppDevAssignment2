@@ -8,9 +8,12 @@ import org.wit.myassignment.databinding.ActivityTrainerListBinding
 import org.wit.myassignment.main.MainApp
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.widget.SearchView
+import com.google.android.material.navigation.NavigationView
+import kotlinx.android.synthetic.main.activity_home.*
 import org.wit.myassignment.R
 import org.wit.myassignment.adapters.PlanListener
 import org.wit.myassignment.adapters.TrainerAdapter
@@ -20,17 +23,12 @@ import timber.log.Timber.i
 import java.util.*
 
 
-class TrainerListActivity : AppCompatActivity(), PlanListener {
-
-
+class TrainerListActivity : AppCompatActivity(), PlanListener, NavigationView.OnNavigationItemSelectedListener {
 
     lateinit var app: MainApp
     private lateinit var binding: ActivityTrainerListBinding
     private lateinit var refreshIntentLauncher : ActivityResultLauncher<Intent>
-
     var plansList: ArrayList<TrainerModel> = ArrayList()
-
-
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
 
@@ -82,6 +80,15 @@ class TrainerListActivity : AppCompatActivity(), PlanListener {
         loadPlans()
         registerRefreshCallback()
 
+        nav_menu.setNavigationItemSelectedListener (this)
+
+    }
+
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        if(item.itemId == R.id.workouts){
+            Toast.makeText(applicationContext, "Workouts", Toast.LENGTH_SHORT).show()
+        }
+        return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -127,6 +134,8 @@ class TrainerListActivity : AppCompatActivity(), PlanListener {
             registerForActivityResult(ActivityResultContracts.StartActivityForResult())
             { loadPlans() }
     }
+
+
 
 
 }
