@@ -5,10 +5,16 @@ import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.core.view.GravityCompat
+import androidx.fragment.app.Fragment
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.content_main.*
 import org.wit.myassignment.R
+import org.wit.myassignment.fragments.Contact
+import org.wit.myassignment.fragments.Home
+import org.wit.myassignment.fragments.Settings
+import org.wit.myassignment.fragments.Workouts
 import timber.log.Timber
 
 class Home : AppCompatActivity(),NavigationView.OnNavigationItemSelectedListener {
@@ -18,23 +24,44 @@ class Home : AppCompatActivity(),NavigationView.OnNavigationItemSelectedListener
         setContentView(R.layout.activity_home)
         setSupportActionBar(toolbar2)
         Timber.i("home attempted render")
-
         val toggle = ActionBarDrawerToggle(this, drawerLayout, toolbar2, R.string.open, R.string.close)
         toggle.isDrawerIndicatorEnabled = true
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
-
         nav_menu.setNavigationItemSelectedListener (this)
-
 
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        drawerLayout.closeDrawer(GravityCompat.START)
 
-        if(item.itemId == R.id.home){
-            Toast.makeText(applicationContext, "Clicked", Toast.LENGTH_SHORT).show()
+        when(item.itemId) {
+            R.id.home -> {
+                setToolbarTitle("Home")
+                changeFragment(Home())
+            }
+            R.id.workouts -> {
+                setToolbarTitle("Workouts")
+                changeFragment(Workouts())
+            }
+            R.id.contact -> {
+                setToolbarTitle("Contact Up")
+                changeFragment(Contact())
+            }
+            R.id.settings -> {
+                setToolbarTitle("Settings")
+                changeFragment(Settings())
+            }
         }
-
         return true
+    }
+
+    fun setToolbarTitle(title:String){
+        supportActionBar?.title = title
+    }
+
+    fun changeFragment(frag: Fragment){
+        val fragment = supportFragmentManager.beginTransaction()
+        fragment.replace(R.id.fragment_container, frag).commit()
     }
 }
