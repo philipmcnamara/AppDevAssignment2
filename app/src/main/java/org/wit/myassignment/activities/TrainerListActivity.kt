@@ -14,6 +14,8 @@ import androidx.appcompat.widget.SearchView
 import org.wit.myassignment.R
 import org.wit.myassignment.adapters.PlanListener
 import org.wit.myassignment.adapters.TrainerAdapter
+import org.wit.myassignment.fragments.Contact
+import org.wit.myassignment.fragments.Settings
 import org.wit.myassignment.models.TrainerModel
 import timber.log.Timber
 import timber.log.Timber.i
@@ -83,6 +85,8 @@ class TrainerListActivity : AppCompatActivity(), PlanListener {
 
         registerRefreshCallback()
 
+
+
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -92,11 +96,20 @@ class TrainerListActivity : AppCompatActivity(), PlanListener {
                 startActivityForResult(launcherIntent,0)
             }
             R.id.item_add -> {
-                i("Button Clicked")
             }
+            R.id.item_home -> {
+
+                Timber.i("Home Button Clicked")
+                //changeFragment(Workouts())
+                val intent = Intent(this, Home::class.java)
+                startActivity(intent)
+                finish()
+            }
+
         }
         return super.onOptionsItemSelected(item)
     }
+
 
     override fun onPlanClick(plan: TrainerModel) {
         val launcherIntent = Intent(this, TrainerActivity::class.java)

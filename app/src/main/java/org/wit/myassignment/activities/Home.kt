@@ -1,5 +1,6 @@
 package org.wit.myassignment.activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
@@ -42,7 +43,10 @@ class Home : AppCompatActivity(),NavigationView.OnNavigationItemSelectedListener
             }
             R.id.workouts -> {
                 setToolbarTitle("Workouts")
-                changeFragment(Workouts())
+                //changeFragment(Workouts())
+                val intent = Intent(this, TrainerListActivity::class.java)
+                startActivity(intent)
+                finish()
             }
             R.id.contact -> {
                 setToolbarTitle("Contact Up")
@@ -51,6 +55,8 @@ class Home : AppCompatActivity(),NavigationView.OnNavigationItemSelectedListener
             R.id.settings -> {
                 setToolbarTitle("Settings")
                 changeFragment(Settings())
+
+
             }
         }
         return true
