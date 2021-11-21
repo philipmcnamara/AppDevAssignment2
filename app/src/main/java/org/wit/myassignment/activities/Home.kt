@@ -4,7 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
-import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
@@ -12,10 +11,8 @@ import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.content_main.*
 import org.wit.myassignment.R
-import org.wit.myassignment.fragments.Contact
+import org.wit.myassignment.fragments.*
 import org.wit.myassignment.fragments.Home
-import org.wit.myassignment.fragments.Settings
-import org.wit.myassignment.fragments.Workouts
 import timber.log.Timber
 
 class Home : AppCompatActivity(),NavigationView.OnNavigationItemSelectedListener {
@@ -49,7 +46,7 @@ class Home : AppCompatActivity(),NavigationView.OnNavigationItemSelectedListener
                 finish()
             }
             R.id.contact -> {
-                setToolbarTitle("Contact Up")
+                setToolbarTitle("Contacts")
                 changeFragment(Contact())
             }
             R.id.settings -> {

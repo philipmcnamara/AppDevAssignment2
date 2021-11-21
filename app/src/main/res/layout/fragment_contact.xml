@@ -7,14 +7,119 @@
     android:layout_height="match_parent"
     tools:context=".fragments.Contact">
 
+
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Contact Fragment"
+        android:id="@+id/textView6"
+        android:layout_width="227dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="45dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginBottom="208dp"
+        android:text="'@twitterIzToxic"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnTweet"
+        app:layout_constraintTop_toBottomOf="@+id/btnEmail"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="84dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="207dp"
+        android:layout_marginBottom="304dp"
+        android:text="Us"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintBottom_toTopOf="@+id/textView5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnContact"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="278dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="396dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="46dp"
+        android:text="bigFakeEmail@wahoo.com"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintBottom_toTopOf="@+id/textView6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/view"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnContact"
+        android:layout_width="146dp"
+        android:layout_height="51dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="6dp"
+        android:background="@drawable/btn_top"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:text="COntact"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/textView"
+        app:layout_constraintHorizontal_bias="0.727"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnTweet"
+        android:layout_width="118dp"
+        android:layout_height="48dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="19dp"
+        android:layout_marginBottom="221dp"
+        android:background="@drawable/btn_top"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:text="Tweet :"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnEmail" />
+
+    <Button
+        android:id="@+id/btnEmail"
+        android:layout_width="115dp"
+        android:layout_height="51dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="299dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="18dp"
+        android:background="@drawable/btn_top"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:text="Email :"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnTweet"
+        app:layout_constraintEnd_toStartOf="@+id/textView5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnContact" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="140dp"
+        android:layout_height="675dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="292dp"
+        android:background="@drawable/ic_login_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.476"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,26 +1,18 @@
 package org.wit.myassignment.fragments
 
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
+import androidx.preference.PreferenceManager
 import kotlinx.android.synthetic.main.fragment_home.*
 import org.wit.myassignment.R
-import org.wit.myassignment.databinding.FragmentHomeBinding
-import org.wit.myassignment.main.MainApp
-import timber.log.Timber
 
-lateinit var app: MainApp
-private var _fragBinding: FragmentHomeBinding? = null
-private val fragBinding get() = _fragBinding!!
 
 class Home : Fragment() {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
 
     override fun onCreateView(
@@ -31,16 +23,23 @@ class Home : Fragment() {
         return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
+    @RequiresApi(Build.VERSION_CODES.N)
+    private fun loadSettings() {
+        val sp = PreferenceManager.getDefaultSharedPreferences(context)
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val signature = sp.getString("signature", "")
+        val defaultReplyAction = sp.getString("reply", "")
+        val sync = sp.getBoolean("sync", true)
+        val notifications = sp.getBoolean("notifications", true)
+        val volume = sp.getInt("volume_notifications", 0)
 
-        fragBinding.btnWorkouts.setOnClickListener{
-            Timber.i("Button Pressed: ")
-        }
-        return super.onOptionsItemSelected(item)
+        tv_signature.text = "Signature: $signature"
+        tv_reply.text = "Default reply: $defaultReplyAction"
+        tv_sync.text = "Sync: $sync"
+        tv_notifications.text = "Disable notifications: $notifications"
+
+        pb_volume.setProgress(volume, true)
+
     }
-
-
-
 
 }

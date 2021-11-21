@@ -14,11 +14,8 @@ import androidx.appcompat.widget.SearchView
 import org.wit.myassignment.R
 import org.wit.myassignment.adapters.PlanListener
 import org.wit.myassignment.adapters.TrainerAdapter
-import org.wit.myassignment.fragments.Contact
-import org.wit.myassignment.fragments.Settings
 import org.wit.myassignment.models.TrainerModel
 import timber.log.Timber
-import timber.log.Timber.i
 import java.util.*
 
 
