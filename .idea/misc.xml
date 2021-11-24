@@ -20,6 +20,7 @@
         <entry key="..\:/Users/phili/Desktop/college/Sem4/Assignment/app/src/main/res/drawable/btn_top.xml" value="0.37916666666666665" />
         <entry key="..\:/Users/phili/Desktop/college/Sem4/Assignment/app/src/main/res/drawable/buttonshape.xml" value="0.37916666666666665" />
         <entry key="..\:/Users/phili/Desktop/college/Sem4/Assignment/app/src/main/res/drawable/calculate_button_background.xml" value="0.2824074074074074" />
+        <entry key="..\:/Users/phili/Desktop/college/Sem4/Assignment/app/src/main/res/drawable/ic_bmi.xml" value="0.20871794871794871" />
         <entry key="..\:/Users/phili/Desktop/college/Sem4/Assignment/app/src/main/res/drawable/ic_email.xml" value="0.37916666666666665" />
         <entry key="..\:/Users/phili/Desktop/college/Sem4/Assignment/app/src/main/res/drawable/ic_email_light_blue_24dp.xml" value="0.37916666666666665" />
         <entry key="..\:/Users/phili/Desktop/college/Sem4/Assignment/app/src/main/res/drawable/ic_home.xml" value="0.21927083333333333" />
@@ -61,7 +62,7 @@
         <entry key="..\:/Users/phili/Desktop/college/Sem4/Assignment/app/src/main/res/layout/splash_screen.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/phili/Desktop/college/Sem4/Assignment/app/src/main/res/menu/menu_main.xml" value="0.33" />
         <entry key="..\:/Users/phili/Desktop/college/Sem4/Assignment/app/src/main/res/menu/menu_plan.xml" value="0.2601851851851852" />
-        <entry key="..\:/Users/phili/Desktop/college/Sem4/Assignment/app/src/main/res/menu/navigation_menu.xml" value="0.1" />
+        <entry key="..\:/Users/phili/Desktop/college/Sem4/Assignment/app/src/main/res/menu/navigation_menu.xml" value="0.33" />
         <entry key="..\:/Users/phili/Desktop/college/Sem4/Assignment/app/src/main/res/xml/root_preferences.xml" value="0.33" />
       </map>
     </option>

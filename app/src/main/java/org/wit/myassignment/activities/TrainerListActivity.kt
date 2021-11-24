@@ -1,5 +1,6 @@
 package org.wit.myassignment.activities
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -43,6 +44,7 @@ class TrainerListActivity : AppCompatActivity(), PlanListener {
                 TODO("Not yet implemented")
             }
 
+            @SuppressLint("NotifyDataSetChanged")
             override fun onQueryTextChange(newText: String?): Boolean {
                 plansList.clear()
                 val searchText = newText!!.lowercase(Locale.getDefault())

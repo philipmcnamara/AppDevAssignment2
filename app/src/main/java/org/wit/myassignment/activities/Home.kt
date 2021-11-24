@@ -45,6 +45,12 @@ class Home : AppCompatActivity(),NavigationView.OnNavigationItemSelectedListener
                 startActivity(intent)
                 finish()
             }
+            R.id.bmi -> {
+                setToolbarTitle("BMI")
+                val intent = Intent(this, BMI::class.java)
+                startActivity(intent)
+                finish()
+            }
             R.id.contact -> {
                 setToolbarTitle("Contacts")
                 changeFragment(Contact())

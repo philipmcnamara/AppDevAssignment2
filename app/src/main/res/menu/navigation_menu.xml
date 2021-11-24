@@ -10,6 +10,10 @@
         android:icon="@drawable/ic_workouts"
         android:title="Workouts" />
     <item
+        android:id="@+id/bmi"
+        android:icon="@drawable/ic_bmi"
+        android:title="BMI" />
+    <item
         android:id="@+id/contact"
         android:icon="@drawable/ic_contact"
         android:title="Contact" />
