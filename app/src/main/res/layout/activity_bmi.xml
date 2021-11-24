@@ -65,21 +65,23 @@
 
 
                 <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
                     android:layout_below="@id/age"
-                    android:background="@drawable/ic_remove"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="16dp"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"/>
+                    android:background="@drawable/ic_remove"
+                    tools:ignore="SpeakableTextPresentCheck" />
 
                 <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
                     android:layout_below="@id/age"
                     android:layout_alignParentEnd="true"
-                    android:background="@drawable/ic_add"
-                    android:layout_marginEnd="8dp"
                     android:layout_marginTop="16dp"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"/>
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/ic_add"
+                    tools:ignore="SpeakableTextPresentCheck" />
 
             </RelativeLayout>
 
@@ -128,21 +130,23 @@
 
 
                 <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
                     android:layout_below="@id/weight"
-                    android:background="@drawable/ic_remove"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="16dp"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"/>
+                    android:background="@drawable/ic_remove"
+                    tools:ignore="SpeakableTextPresentCheck" />
 
                 <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
                     android:layout_below="@id/weight"
                     android:layout_alignParentEnd="true"
-                    android:background="@drawable/ic_add"
-                    android:layout_marginEnd="8dp"
                     android:layout_marginTop="16dp"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"/>
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/ic_add"
+                    tools:ignore="SpeakableTextPresentCheck" />
 
             </RelativeLayout>
 
