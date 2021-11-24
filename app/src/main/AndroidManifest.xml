@@ -10,49 +10,47 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyAssignment.NoActionBar">
-
-
+        <activity
+            android:name=".activities.BMI"
+            android:exported="false" />
         <activity
             android:name=".activities.LoginActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".activities.RegisterActivity">
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         </activity>
-
-
         <activity
             android:name=".activities.SplashScreen"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".activities.Home"
-            android:theme="@style/Theme.DrawerMenu.NoActionBar"
-            android:exported="true">
-        </activity>
-
+            android:exported="true"
+            android:theme="@style/Theme.DrawerMenu.NoActionBar"></activity>
         <activity
-            android:name=".activities.TrainerListActivity" android:theme="@style/Theme.MyAssignment.NoActionBar"
-            android:exported="true">
+            android:name=".activities.TrainerListActivity"
+            android:exported="true"
+            android:theme="@style/Theme.MyAssignment.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.TrainerActivity"></activity>
-
-
+        <activity android:name=".activities.TrainerActivity" />
     </application>
 
 </manifest>
