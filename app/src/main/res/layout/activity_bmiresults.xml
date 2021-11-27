@@ -11,12 +11,21 @@
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:background="@color/colorAccent"
         android:fitsSystemWindows="true"
         app:elevation="0dip"
-        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:theme="@style/Theme.MyAssignment.NoActionBar"
         tools:ignore="MissingConstraints">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="69dp"
+            android:layout_height="50dp"
+            android:icon="@drawable/ic_home"
+            android:onClick="Home"
+            android:text="@string/home">
+
+        </androidx.appcompat.widget.AppCompatButton>
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"

@@ -3,6 +3,8 @@
 
     <PreferenceScreen
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+
     </PreferenceScreen>
 
     <PreferenceCategory

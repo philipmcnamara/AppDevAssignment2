@@ -1,5 +1,6 @@
 package org.wit.myassignment.activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.SeekBar
@@ -75,12 +76,8 @@ class BMI : AppCompatActivity() {
 
     fun showResult(view: android.view.View) {
 
-        var ageValue = Integer.parseInt(age.text as String)
         var weightValue = weight.text.toString().toDouble()
         var heightValue = height_value.text.toString().toDouble()/100
-
-        var bmiStatus = bmiStatus
-
 
         if (weightValue >0.0 && heightValue >0.0)
         {
@@ -92,14 +89,12 @@ class BMI : AppCompatActivity() {
         Timber.i("Bmi: ${bmi.text}")
         setContentView(R.layout.activity_bmiresults)
         showResult()
-
     }
 
     private fun showResult() {
         bmiResult.text = bmi.text as String
         bmiStatus2.text = bmiStatus.text as String
     }
-
 
     private fun bmiStatusValue(bmi: Double): String {
         lateinit var bmiStatus: String
@@ -113,6 +108,12 @@ class BMI : AppCompatActivity() {
             bmiStatus = "Obese"
         return bmiStatus
 
+    }
+
+    fun Home(view: android.view.View) {
+        val intent = Intent(this, Home::class.java)
+        startActivity(intent)
+        finish()
     }
 
 
