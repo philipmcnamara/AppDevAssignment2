@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyAssignment.NoActionBar">
         <activity
+            android:name=".activities.WeightTracker"
+            android:exported="false" />
+        <activity
             android:name=".activities.LoginActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
@@ -37,7 +40,7 @@
         <activity
             android:name=".activities.Home"
             android:exported="true"
-            android:theme="@style/Theme.DrawerMenu.NoActionBar"></activity>
+            android:theme="@style/Theme.DrawerMenu.NoActionBar" />
         <activity
             android:name=".activities.TrainerListActivity"
             android:exported="true"
@@ -49,7 +52,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".activities.TrainerActivity" />
-
         <activity
             android:name=".activities.BMI"
             android:exported="true"
