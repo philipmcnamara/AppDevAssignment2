@@ -37,6 +37,23 @@ class BMI : AppCompatActivity() {
         }
     }
 
+    fun decreaseWeight(view: android.view.View) {
+        Timber.i("decreaseWeight Button Pressed:")
+        if (Integer.parseInt(weight.text.toString()) > 0){
+            weight.text = (Integer.parseInt(weight.text as String)).minus(1).toString()
+            Timber.i("Weight : ${weight.text}")
+        }
+    }
+
+
+    fun increaseWeight(view: android.view.View) {
+        Timber.i("IncreaseWeight Button Pressed:")
+        if (Integer.parseInt(weight.text.toString()) > 0){
+            weight.text = (Integer.parseInt(weight.text as String)).plus(1).toString()
+            Timber.i("Weight : ${weight.text}")
+        }
+    }
+
 }
 
 

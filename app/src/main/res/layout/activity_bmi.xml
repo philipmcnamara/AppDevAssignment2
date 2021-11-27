@@ -137,6 +137,7 @@
                     android:layout_below="@id/weight"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="16dp"
+                    android:onClick="decreaseWeight"
                     android:background="@drawable/ic_remove"
                     tools:ignore="SpeakableTextPresentCheck" />
 
@@ -145,6 +146,7 @@
                     android:layout_height="60dp"
                     android:layout_below="@id/weight"
                     android:layout_alignParentEnd="true"
+                    android:onClick="increaseWeight"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="8dp"
                     android:background="@drawable/ic_add"
