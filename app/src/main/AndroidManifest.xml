@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="org.wit.myassignment">
 
     <application
@@ -10,9 +11,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyAssignment.NoActionBar">
-        <activity
-            android:name=".activities.BMI"
-            android:exported="false" />
         <activity
             android:name=".activities.LoginActivity"
             android:exported="true"
@@ -51,6 +49,18 @@
             </intent-filter>
         </activity>
         <activity android:name=".activities.TrainerActivity" />
+
+        <activity
+            android:name=".activities.BMI"
+            android:exported="true"
+            android:theme="@style/Theme.MyAssignment.NoActionBar"
+            tools:ignore="DuplicateActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

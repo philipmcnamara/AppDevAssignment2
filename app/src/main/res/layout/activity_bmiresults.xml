@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="#CCCCCC"
+    android:padding="0dp"
+    android:layout_height="match_parent"
+    tools:context=".activities.BMI">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:fitsSystemWindows="true"
+        app:elevation="0dip"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        tools:ignore="MissingConstraints">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:titleTextColor="@color/colorPrimary" />
+
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <LinearLayout
+        android:id="@+id/linear_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.36"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.059"
+        app:layout_constraintTop_toBottomOf="@id/linear_layout">
+
+        <androidx.cardview.widget.CardView
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="4dp"
+            android:layout_weight="1"
+            android:layout_marginTop="40dp"
+            app:cardElevation="8dp"
+            app:cardCornerRadius="8dp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            tools:ignore="MissingConstraints" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <TextView
+                    android:id="@+id/bmi_resultTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="Your Results"
+                    android:textColor="@color/black"
+                    android:textSize="26sp"
+                    tools:ignore="HardcodedText" />
+
+
+                <TextView
+                    android:id="@+id/bmi_score"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/bmi_resultTitle"
+                    android:layout_marginTop="58dp"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="BMI score"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:id="@+id/bmiResult"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/bmi_score"
+                    android:layout_marginTop="11dp"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="100"
+                    android:textColor="@color/black"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:ignore="HardcodedText,MissingConstraints" />
+
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/middle_card"
+        android:layout_width="396dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="28dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.27"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linear_layout">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:ignore="ExtraText">
+
+            <TextView
+                android:id="@+id/bmiStatusTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="BMI Status"
+                android:textColor="@color/black"
+                android:textSize="26sp"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/bmiStatus2"
+                android:layout_width="318dp"
+                android:layout_height="86dp"
+                android:layout_below="@id/bmiStatusTitle"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="43dp"
+                android:text="Test"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="32sp"
+                tools:ignore="HardcodedText" />
+
+        </RelativeLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

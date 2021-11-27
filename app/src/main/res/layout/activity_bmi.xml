@@ -5,9 +5,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:background="#CCCCCC"
-    android:padding="8dp"
+    android:padding="0dp"
     android:layout_height="match_parent"
     tools:context=".activities.BMI">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:fitsSystemWindows="true"
+        app:elevation="0dip"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        tools:ignore="MissingConstraints">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:titleTextColor="@color/colorPrimary" />
+
+
+    </com.google.android.material.appbar.AppBarLayout>
 
     <LinearLayout
         android:id="@+id/linear_layout"
@@ -26,6 +44,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="8dp"
+            android:layout_marginTop="30dp"
             android:layout_weight="1"
             app:cardElevation="8dp"
             app:cardCornerRadius="8dp"
@@ -40,14 +59,14 @@
 
                 <TextView
                     android:id="@+id/age_tile"
-                    android:padding="8dp"
-                    android:text="Age (In Years)"
-                    android:gravity="center"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    tools:ignore="HardcodedText"/>
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="Age (In Years)"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    tools:ignore="HardcodedText" />
 
 
                 <TextView
@@ -55,6 +74,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/age_tile"
+                    android:layout_marginTop="37dp"
                     android:gravity="center"
                     android:padding="8dp"
                     android:text="30"
@@ -63,13 +83,12 @@
                     android:textStyle="bold"
                     tools:ignore="HardcodedText" />
 
-
                 <androidx.appcompat.widget.AppCompatButton
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:layout_below="@id/age"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="18dp"
                     android:background="@drawable/ic_remove"
                     android:onClick="decreaseAge"
                     tools:ignore="SpeakableTextPresentCheck" />
@@ -79,10 +98,10 @@
                     android:layout_height="60dp"
                     android:layout_below="@id/age"
                     android:layout_alignParentEnd="true"
-                    android:onClick="increaseAge"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="8dp"
+                    android:layout_marginTop="17dp"
+                    android:layout_marginEnd="13dp"
                     android:background="@drawable/ic_add"
+                    android:onClick="increaseAge"
                     tools:ignore="SpeakableTextPresentCheck" />
 
             </RelativeLayout>
@@ -93,6 +112,7 @@
         <androidx.cardview.widget.CardView
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
+            android:layout_marginTop="30dp"
             android:layout_weight="1"
             app:cardElevation="8dp"
             app:cardCornerRadius="8dp"
@@ -107,38 +127,38 @@
 
                 <TextView
                     android:id="@+id/weight_title"
-                    android:padding="8dp"
-                    android:text="Weight (Kg)"
-                    android:gravity="center"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    tools:ignore="HardcodedText"/>
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="Weight (Kg)"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    tools:ignore="HardcodedText" />
 
 
                 <TextView
                     android:id="@+id/weight"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/weight_title"
+                    android:layout_marginTop="40dp"
+                    android:gravity="center"
                     android:padding="8dp"
                     android:text="100"
-                    android:gravity="center"
                     android:textColor="@color/black"
                     android:textSize="30sp"
                     android:textStyle="bold"
-                    android:layout_below="@id/weight_title"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    tools:ignore="HardcodedText"/>
-
+                    tools:ignore="HardcodedText" />
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:layout_below="@id/weight"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="16dp"
-                    android:onClick="decreaseWeight"
+                    android:layout_marginTop="17dp"
                     android:background="@drawable/ic_remove"
+                    android:onClick="decreaseWeight"
                     tools:ignore="SpeakableTextPresentCheck" />
 
                 <androidx.appcompat.widget.AppCompatButton
@@ -146,10 +166,10 @@
                     android:layout_height="60dp"
                     android:layout_below="@id/weight"
                     android:layout_alignParentEnd="true"
-                    android:onClick="increaseWeight"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="8dp"
+                    android:layout_marginTop="19dp"
+                    android:layout_marginEnd="17dp"
                     android:background="@drawable/ic_add"
+                    android:onClick="increaseWeight"
                     tools:ignore="SpeakableTextPresentCheck" />
 
             </RelativeLayout>
@@ -170,7 +190,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/linear_layout"
-        android:layout_width="match_parent"
+        android:layout_width="396dp"
         android:layout_height="0dp">
 
         <RelativeLayout
@@ -180,13 +200,13 @@
 
             <TextView
                 android:id="@+id/height"
-                android:textColor="@color/black"
-                android:text="@string/height"
-                android:textSize="26sp"
-                android:layout_centerHorizontal="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:ignore="HardcodedText"/>
+                android:layout_centerHorizontal="true"
+                android:text="@string/height"
+                android:textColor="@color/black"
+                android:textSize="26sp"
+                tools:ignore="HardcodedText" />
 
             <TextView
                 android:id="@+id/height_value"
@@ -205,12 +225,26 @@
                 android:layout_width="375dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/height_value"
-                android:progress="150"
-                android:max="300"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp" />
+                android:layout_marginBottom="8dp"
+                android:max="300"
+                android:progress="150" />
+
+            <TextView
+                android:id="@+id/bmiStatus"
+                android:layout_width="221dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="180dp"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="100"
+                android:textColor="@color/black"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText,MissingConstraints" />
 
         </RelativeLayout>
 
@@ -220,11 +254,11 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/bottom_card"
-        android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
         app:cardCornerRadius="8dp"
         app:cardElevation="8dp"
+        android:layout_width="396dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.20"
         app:layout_constraintStart_toStartOf="parent"
@@ -239,7 +273,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:text="Biological Gender"
+                android:text="Gender"
                 android:textColor="@color/black"
                 android:textSize="26sp"
                 tools:ignore="HardcodedText" />

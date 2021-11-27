@@ -2,17 +2,12 @@ package org.wit.myassignment.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.SeekBar
-import android.widget.TextView
-import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.widget.AppCompatButton
 import kotlinx.android.synthetic.main.activity_bmi.*
-import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.activity_bmiresults.*
 import org.wit.myassignment.R
 import org.wit.myassignment.databinding.ActivityBmiBinding
+import org.wit.myassignment.databinding.ActivityTrainerBinding
 import org.wit.myassignment.main.MainApp
 import timber.log.Timber
 import kotlin.math.pow
@@ -21,7 +16,6 @@ class BMI : AppCompatActivity() {
 
     lateinit var app: MainApp
     private lateinit var binding: ActivityBmiBinding
-    private var seekBar: SeekBar? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,7 +24,6 @@ class BMI : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_bmi)
 
-        height_value
 
         seek_bar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
 
@@ -86,16 +79,39 @@ class BMI : AppCompatActivity() {
         var weightValue = weight.text.toString().toDouble()
         var heightValue = height_value.text.toString().toDouble()/100
 
+        var bmiStatus = bmiStatus
+
 
         if (weightValue >0.0 && heightValue >0.0)
         {
             var bmiValue = String.format("%.2f", weightValue/heightValue.pow(2))
             bmi.text =bmiValue
-
+            bmiStatus.text = bmiStatusValue(weightValue/heightValue.pow(2))
         }
-        Timber.i("Bmi : ${bmi.text}")
 
-        //showBMI(bmi)
+        Timber.i("Bmi: ${bmi.text}")
+        setContentView(R.layout.activity_bmiresults)
+        showResult()
+
+    }
+
+    private fun showResult() {
+        bmiResult.text = bmi.text as String
+        bmiStatus2.text = bmiStatus.text as String
+    }
+
+
+    private fun bmiStatusValue(bmi: Double): String {
+        lateinit var bmiStatus: String
+        if(bmi<18.5)
+            bmiStatus = "Underweight"
+        else if  (bmi>=18.5 && bmi <25)
+            bmiStatus = "Normal"
+        else if (bmi>=25 && bmi <30)
+            bmiStatus = "Overweight"
+        else if (bmi>30)
+            bmiStatus = "Obese"
+        return bmiStatus
 
     }
 
