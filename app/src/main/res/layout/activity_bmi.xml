@@ -219,16 +219,16 @@
 
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/bottom_card"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
-        app:cardElevation="8dp"
         app:cardCornerRadius="8dp"
+        app:cardElevation="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.20"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/middle_card"
-        android:id="@+id/bottom_card">
+        app:layout_constraintTop_toBottomOf="@id/middle_card">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -236,59 +236,58 @@
 
             <TextView
                 android:id="@+id/gender"
-                android:text="Biological Gender"
-                android:textSize="26sp"
-                android:textColor="@color/black"
-                android:layout_centerHorizontal="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:ignore="HardcodedText"/>
+                android:layout_centerHorizontal="true"
+                android:text="Biological Gender"
+                android:textColor="@color/black"
+                android:textSize="26sp"
+                tools:ignore="HardcodedText" />
 
             <TextView
                 android:id="@+id/iam"
-                android:text="I'm"
-                android:padding="8dp"
-                android:textSize="42sp"
-                android:textColor="@color/black"
-                android:layout_alignParentBottom="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:padding="8dp"
+                android:text="I'm"
+                android:textColor="@color/black"
+                android:textSize="42sp"
                 tools:ignore="HardcodedText" />
 
             <TextView
                 android:id="@+id/male"
-                android:padding="16dp"
-                android:text="Male"
-                android:textSize="18sp"
-                android:textColor="@color/black"
-                android:layout_toEndOf="@id/gender_switch"
-                android:layout_alignParentBottom="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_toEndOf="@id/gender_switch"
+                android:padding="16dp"
+                android:text="Male"
+                android:textColor="@color/black"
+                android:textSize="18sp"
                 tools:ignore="HardcodedText" />
 
             <TextView
                 android:id="@+id/female"
-                android:padding="16dp"
-                android:text="Female"
-                android:textSize="18sp"
-                android:textColor="@color/black"
-                android:layout_toEndOf="@id/iam"
-                android:layout_alignParentBottom="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_toEndOf="@id/iam"
+                android:padding="16dp"
+                android:text="Female"
+                android:textColor="@color/black"
+                android:textSize="18sp"
                 tools:ignore="HardcodedText" />
 
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/gender_switch"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_toEndOf="@id/female"
-                android:padding="16dp"
-                android:layout_width="70dp"
-                android:layout_height="wrap_content"/>
+                android:padding="16dp" />
 
         </RelativeLayout>
-
 
 
     </androidx.cardview.widget.CardView>
@@ -296,6 +295,7 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/calculate_button"
+        android:onClick="showResult"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:text="@string/calculate"
@@ -308,7 +308,21 @@
         app:layout_constraintTop_toBottomOf="@+id/bottom_card" />
 
 
-
+    <TextView
+        android:id="@+id/bmi"
+        android:layout_width="118dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:padding="8dp"
+        android:text="100"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bottom_card"
+        tools:ignore="HardcodedText,MissingConstraints" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

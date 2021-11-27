@@ -2,13 +2,20 @@ package org.wit.myassignment.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.SeekBar
 import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.widget.AppCompatButton
 import kotlinx.android.synthetic.main.activity_bmi.*
+import kotlinx.android.synthetic.main.activity_login.*
 import org.wit.myassignment.R
 import org.wit.myassignment.databinding.ActivityBmiBinding
 import org.wit.myassignment.main.MainApp
 import timber.log.Timber
+import kotlin.math.pow
 
 class BMI : AppCompatActivity() {
 
@@ -72,6 +79,26 @@ class BMI : AppCompatActivity() {
             Timber.i("Weight : ${weight.text}")
         }
     }
+
+    fun showResult(view: android.view.View) {
+
+        var ageValue = Integer.parseInt(age.text as String)
+        var weightValue = weight.text.toString().toDouble()
+        var heightValue = height_value.text.toString().toDouble()/100
+
+
+        if (weightValue >0.0 && heightValue >0.0)
+        {
+            var bmiValue = String.format("%.2f", weightValue/heightValue.pow(2))
+            bmi.text =bmiValue
+
+        }
+        Timber.i("Bmi : ${bmi.text}")
+
+        //showBMI(bmi)
+
+    }
+
 
 }
 
