@@ -45,7 +45,7 @@
                     android:layout_height="45dp"
                     android:layout_margin="8dp"
                     android:autofillHints=""
-                    android:hint="@string/hint_routineTitle"
+                    android:hint="Enter Weight"
                     android:inputType="text"
                     android:maxLength="25"
                     android:maxLines="1"
@@ -59,7 +59,7 @@
                     android:layout_height="45dp"
                     android:layout_margin="8dp"
                     android:autofillHints=""
-                    android:hint="@string/hint_routineSet1"
+                    android:hint="Enter Day of Tracking"
                     android:inputType="text"
                     android:maxLength="25"
                     android:maxLines="1"
@@ -77,6 +77,29 @@
                     android:paddingBottom="8dp"
                     android:stateListAnimator="@null"
                     android:text="@string/button_addRoutine"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="16sp" />
+
+
+                <ImageButton
+                    android:id="@+id/btnDeletePlan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="170dp"
+                    app:srcCompat="@drawable/ic_action_delete"
+                    android:visibility="gone"/>
+
+                <Button
+                    android:id="@+id/WeightTracker"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:background="@color/colorAccent"
+                    android:onClick="navToWeight"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:stateListAnimator="@null"
+                    android:text="View Progress"
                     android:textColor="@color/colorPrimary"
                     android:textSize="16sp" />
             </LinearLayout>

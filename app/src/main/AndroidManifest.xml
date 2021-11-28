@@ -15,6 +15,12 @@
             android:name=".activities.WeightTracker"
             android:exported="false" />
         <activity
+            android:name=".activities.WeightListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.WeightActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.LoginActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
@@ -52,6 +58,17 @@
             </intent-filter>
         </activity>
         <activity android:name=".activities.TrainerActivity" />
+        <activity
+            android:name=".activities.RoutineListActivity"
+            android:exported="true"
+            android:theme="@style/Theme.MyAssignment.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activities.RoutineActivity" />
         <activity
             android:name=".activities.BMI"
             android:exported="true"

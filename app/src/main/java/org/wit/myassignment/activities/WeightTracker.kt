@@ -1,12 +1,12 @@
 package org.wit.myassignment.activities
 
+import android.content.Intent
 import android.graphics.Color
-import android.graphics.Color.BLUE
-import android.hardware.camera2.params.RggbChannelVector.BLUE
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.content.ContextCompat.startActivity
 import com.androidplot.xy.*
-import kotlinx.android.synthetic.main.activity_weightgraph.*
+import kotlinx.android.synthetic.main.activity_weight_tracker.*
 import org.wit.myassignment.R
 import java.text.FieldPosition
 import java.text.Format
@@ -44,4 +44,11 @@ class WeightTracker : AppCompatActivity() {
         }
         PanZoom.attach(plot)
     }
+
+    fun Home(view: android.view.View) {
+        val intent = Intent(this, Home::class.java)
+        startActivity(intent)
+        finish()
+    }
 }
+

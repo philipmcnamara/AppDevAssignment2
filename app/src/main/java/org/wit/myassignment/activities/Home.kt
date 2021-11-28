@@ -51,6 +51,12 @@ class Home : AppCompatActivity(),NavigationView.OnNavigationItemSelectedListener
                 startActivity(intent)
                 finish()
             }
+            R.id.weightTracker -> {
+                setToolbarTitle("Weight Tracker")
+                val intent = Intent(this, RoutineListActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
             R.id.contact -> {
                 setToolbarTitle("Contacts")
                 changeFragment(Contact())

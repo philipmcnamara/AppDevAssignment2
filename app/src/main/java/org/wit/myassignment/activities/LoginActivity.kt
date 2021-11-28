@@ -43,7 +43,7 @@ class LoginActivity : AppCompatActivity() {
             } }
         }
         skipButton.setOnClickListener{
-            val intent = Intent(this, WeightTracker::class.java)
+            val intent = Intent(this, SplashScreen::class.java)
             startActivity(intent)
             finish()
         }

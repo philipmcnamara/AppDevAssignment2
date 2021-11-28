@@ -9,7 +9,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="126dp"
         android:padding="16dp">
 
         <TextView
@@ -19,6 +19,16 @@
             android:layout_alignParentTop="true"
             android:textSize="30sp"
             tools:text="A Title" />
+
+        <TextView
+            android:id="@+id/planSet1"
+            android:layout_width="173dp"
+            android:layout_height="58dp"
+            android:layout_below="@+id/planRoutine"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="52dp"
+            android:textSize="30sp"
+            tools:text="Day" />
 
 
     </RelativeLayout>

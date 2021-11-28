@@ -34,4 +34,9 @@ class RoutineMemStore : RoutineStore {
         routines.forEach{ i("${it}") }
     }
 
+    override fun delete(routine: exerciseModel) {
+        routines.remove(routine)
+        logAll()
+    }
+
 }

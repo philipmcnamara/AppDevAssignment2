@@ -4,4 +4,5 @@ interface RoutineStore {
     fun findAll(): List<exerciseModel>
     fun create(plan: exerciseModel)
     fun update(plan: exerciseModel)
+    fun delete(plan: exerciseModel)
 }

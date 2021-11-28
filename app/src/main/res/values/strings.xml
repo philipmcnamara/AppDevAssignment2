@@ -25,6 +25,7 @@
     <string name="email">Email</string>
     <string name="login_error"> Login Failed....you suck </string>
     <string name="password">Password</string>
+    <string name="save_weights"> Save Weight </string>
 
     <string name="open">open</string>
     <string name="close">close</string>

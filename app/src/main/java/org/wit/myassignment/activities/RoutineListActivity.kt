@@ -13,6 +13,7 @@ import org.wit.myassignment.adapters.RoutineListener
 import org.wit.myassignment.databinding.ActivityPlansListBinding
 import org.wit.myassignment.main.MainApp
 import org.wit.myassignment.models.exerciseModel
+import timber.log.Timber
 import timber.log.Timber.i
 
 
@@ -50,6 +51,14 @@ class RoutineListActivity : AppCompatActivity(), RoutineListener {
             }
             R.id.item_add -> {
                 i("Button Clicked")
+            }
+            R.id.item_home -> {
+
+                Timber.i("Home Button Clicked")
+                //changeFragment(Workouts())
+                val intent = Intent(this, Home::class.java)
+                startActivity(intent)
+                finish()
             }
         }
         return super.onOptionsItemSelected(item)
