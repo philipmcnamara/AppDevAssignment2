@@ -6,22 +6,41 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.content.ContextCompat.startActivity
 import com.androidplot.xy.*
+import kotlinx.android.synthetic.main.activity_bmi.*
 import kotlinx.android.synthetic.main.activity_weight_tracker.*
 import org.wit.myassignment.R
+import org.wit.myassignment.main.MainApp
+import org.wit.myassignment.models.TrainerModel
+import org.wit.myassignment.models.exerciseModel
+import timber.log.Timber
 import java.text.FieldPosition
 import java.text.Format
 import java.text.ParsePosition
 import java.util.*
 
+var weightArrayList: ArrayList<exerciseModel> = ArrayList()
+lateinit var app: MainApp
+var routines = app.routines.findAll()
+
+
 class WeightTracker : AppCompatActivity() {
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_weight_tracker)
 
-        val domainLabels = arrayOf<Number>(1,2,3,4,5,6,7,8,9,10)
-        val series1Number = arrayOf<Number>(1,4,8,16,32,26,29,10,13)
+        lateinit var app: MainApp
 
-        val series1 : XYSeries = SimpleXYSeries(Arrays.asList(* series1Number), SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, "Serires 1")
+        weightArrayList.addAll(routines)
+        Timber.i("WeightList : ${weightArrayList}")
+
+        val daysTracked = arrayOf<Number>(1,2,3,4,5,6,7,8,9,10)
+        val weightList = arrayOf<Number>(84,82,81,83,86,85,81,79,75)
+
+
+        val series1 : XYSeries = SimpleXYSeries(Arrays.asList(* weightList), SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, "Days Tracked")
 
         val series1Format = LineAndPointFormatter(Color.BLUE, Color.BLACK, null, null)
 
@@ -34,7 +53,7 @@ class WeightTracker : AppCompatActivity() {
                 pos: FieldPosition?
             ): StringBuffer? {
                 val i = Math.round((obj as Number).toFloat())
-                return toAppendTo?.append(domainLabels[i])
+                return toAppendTo?.append(daysTracked[i])
             }
 
             override fun parseObject(source: String?, pos: ParsePosition?): Any? {
@@ -51,4 +70,5 @@ class WeightTracker : AppCompatActivity() {
         finish()
     }
 }
+
 

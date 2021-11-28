@@ -11,7 +11,6 @@ internal fun getId(): Long {
 class PlanMemStore : PlanStore {
 
     val plans = ArrayList<TrainerModel>()
-    var plansList = ArrayList<TrainerModel>()
 
     override fun findAll(): MutableList<TrainerModel> {
         logAll()

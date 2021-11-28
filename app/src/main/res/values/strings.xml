@@ -49,5 +49,8 @@
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
     <string name="calculate">Calculate</string>
     <string name="height">Height</string>
+    <string name="add_weight_reading">Add Weight Reading</string>
+    <string name="enter_day_of_tracking">Enter Day of Tracking</string>
+    <string name="enter_weight">Enter Weight</string>
 
 </resources>
