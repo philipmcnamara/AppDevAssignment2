@@ -1,17 +1,17 @@
 package org.wit.myassignment.activities
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.content_main.*
 import org.wit.myassignment.R
-import org.wit.myassignment.fragments.*
+import org.wit.myassignment.fragments.Contact
 import org.wit.myassignment.fragments.Home
 import timber.log.Timber
 
@@ -27,6 +27,7 @@ class Home : AppCompatActivity(),NavigationView.OnNavigationItemSelectedListener
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
         nav_menu.setNavigationItemSelectedListener (this)
+
 
     }
 
@@ -63,8 +64,9 @@ class Home : AppCompatActivity(),NavigationView.OnNavigationItemSelectedListener
             }
             R.id.settings -> {
                 setToolbarTitle("Settings")
-                changeFragment(Settings())
-
+                val intent = Intent(this, SettingsActivity::class.java)
+                startActivity(intent)
+                finish()
 
             }
         }
