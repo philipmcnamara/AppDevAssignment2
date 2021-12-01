@@ -3,6 +3,9 @@ package org.wit.myassignment.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_login.*
 import org.wit.myassignment.R
 import org.wit.myassignment.databinding.ActivityLoginBinding
@@ -12,10 +15,13 @@ import java.util.*
 
 
 class LoginActivity : AppCompatActivity() {
+    private lateinit var auth: FirebaseAuth
+
     private lateinit var binding: ActivityLoginBinding
     lateinit var app: MainApp
 
     override fun onCreate(savedInstanceState: Bundle?) {
+       // auth = Firebase.auth
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(R.layout.activity_login)
