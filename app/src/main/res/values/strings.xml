@@ -53,5 +53,6 @@
     <string name="enter_day_of_tracking">Enter Day of Tracking</string>
     <string name="enter_weight">Enter Weight</string>
     <string name="title_activity_settings">SettingsActivity</string>
+    <string name="auth_failed">Auth Fail</string>
 
 </resources>

@@ -1,4 +1,4 @@
-package org.wit.myassignment.activities
+package org.wit.myassignment.ui.weighttracking
 
 import android.content.Intent
 import android.os.Bundle
@@ -11,6 +11,7 @@ import org.wit.myassignment.R
 import org.wit.myassignment.databinding.ActivityPlansBinding
 import org.wit.myassignment.main.MainApp
 import org.wit.myassignment.models.exerciseModel
+import org.wit.myassignment.ui.home.Home
 import timber.log.Timber
 import timber.log.Timber.i
 
@@ -82,7 +83,7 @@ class RoutineActivity  : AppCompatActivity() {
             }
             R.id.item_home -> {
 
-                Timber.i("Home Button Clicked")
+                Timber.i("HomeFragment Button Clicked")
                 //changeFragment(Workouts())
                 val intent = Intent(this, Home::class.java)
                 startActivity(intent)

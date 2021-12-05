@@ -1,4 +1,4 @@
-package org.wit.myassignment.fragments
+package org.wit.myassignment.ui.contactinfo
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

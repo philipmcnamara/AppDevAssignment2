@@ -1,4 +1,4 @@
-package org.wit.myassignment.activities
+package org.wit.myassignment.ui.bmi
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -8,7 +8,6 @@ import kotlinx.android.synthetic.main.activity_bmi.*
 import kotlinx.android.synthetic.main.activity_bmiresults.*
 import org.wit.myassignment.R
 import org.wit.myassignment.databinding.ActivityBmiBinding
-import org.wit.myassignment.databinding.ActivityTrainerBinding
 import org.wit.myassignment.main.MainApp
 import timber.log.Timber
 import kotlin.math.pow
@@ -111,7 +110,7 @@ class BMI : AppCompatActivity() {
     }
 
     fun Home(view: android.view.View) {
-        val intent = Intent(this, Home::class.java)
+        val intent = Intent(this, org.wit.myassignment.ui.home.Home::class.java)
         startActivity(intent)
         finish()
     }

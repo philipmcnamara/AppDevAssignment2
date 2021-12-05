@@ -1,4 +1,4 @@
-package org.wit.myassignment.activities
+package org.wit.myassignment.ui.weighttracking
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,13 +6,13 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.viewbinding.ViewBinding
 import org.wit.myassignment.R
 import org.wit.myassignment.adapters.RoutineAdapter
 import org.wit.myassignment.adapters.RoutineListener
 import org.wit.myassignment.databinding.ActivityPlansListBinding
 import org.wit.myassignment.main.MainApp
 import org.wit.myassignment.models.exerciseModel
+import org.wit.myassignment.ui.home.Home
 import timber.log.Timber
 import timber.log.Timber.i
 
@@ -54,7 +54,7 @@ class RoutineListActivity : AppCompatActivity(), RoutineListener {
             }
             R.id.item_home -> {
 
-                Timber.i("Home Button Clicked")
+                Timber.i("HomeFragment Button Clicked")
                 //changeFragment(Workouts())
                 val intent = Intent(this, Home::class.java)
                 startActivity(intent)

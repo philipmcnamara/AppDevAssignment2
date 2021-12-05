@@ -1,4 +1,4 @@
-package org.wit.myassignment.activities
+package org.wit.myassignment.ui.workouts
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -16,6 +16,7 @@ import org.wit.myassignment.R
 import org.wit.myassignment.adapters.PlanListener
 import org.wit.myassignment.adapters.TrainerAdapter
 import org.wit.myassignment.models.TrainerModel
+import org.wit.myassignment.ui.home.Home
 import timber.log.Timber
 import java.util.*
 
@@ -98,7 +99,7 @@ class TrainerListActivity : AppCompatActivity(), PlanListener {
             }
             R.id.item_home -> {
 
-                Timber.i("Home Button Clicked")
+                Timber.i("HomeFragment Button Clicked")
                 //changeFragment(Workouts())
                 val intent = Intent(this, Home::class.java)
                 startActivity(intent)

@@ -1,4 +1,4 @@
-package org.wit.myassignment.activities
+package org.wit.myassignment.ui.workouts
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

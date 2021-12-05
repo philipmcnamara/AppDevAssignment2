@@ -1,4 +1,4 @@
-package org.wit.myassignment.fragments
+package org.wit.myassignment.ui.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,7 +9,7 @@ import org.wit.myassignment.R
 
 
 
-class Home : Fragment() {
+class HomeFragment : Fragment() {
 
 
 

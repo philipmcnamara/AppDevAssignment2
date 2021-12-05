@@ -1,4 +1,4 @@
-package org.wit.myassignment.activities
+package org.wit.myassignment.ui.settings
 
 import android.content.Intent
 import android.os.Bundle
@@ -29,7 +29,7 @@ class SettingsActivity : AppCompatActivity() {
     }
 
     fun Home(view: android.view.View) {
-        val intent = Intent(this, Home::class.java)
+        val intent = Intent(this, org.wit.myassignment.ui.home.Home::class.java)
         startActivity(intent)
         finish()
     }
