@@ -49,6 +49,7 @@ class Home : AppCompatActivity(),NavigationView.OnNavigationItemSelectedListener
             if (firebaseUser != null) {
                 loggedInViewModel.liveFirebaseUser.value!!
                 Timber.i("onStart activated, first If hit")
+
             }
         })
 

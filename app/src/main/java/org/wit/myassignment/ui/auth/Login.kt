@@ -14,7 +14,7 @@ import org.wit.myassignment.databinding.ActivityLoginBinding
 import org.wit.myassignment.main.MainApp
 import timber.log.Timber
 import androidx.lifecycle.Observer
-
+import org.wit.myassignment.ui.settings.SettingsActivity
 
 
 class Login : AppCompatActivity() {
@@ -52,7 +52,6 @@ class Login : AppCompatActivity() {
         loginRegisterViewModel = ViewModelProvider(this).get(LoginRegisterViewModel::class.java)
         loginRegisterViewModel.liveFirebaseUser.observe(this, Observer
         { firebaseUser -> if (firebaseUser != null)
-
             startActivity(Intent(this, Home::class.java)) })
         Timber.i("Jumping to Home")
 
