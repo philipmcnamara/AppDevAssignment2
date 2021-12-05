@@ -5,6 +5,8 @@
         android:id="@+id/home"
         android:icon="@drawable/ic_home"
         android:title="Home" />
+    <item android:title="Fittness">
+        <menu>
     <item
         android:id="@+id/workouts"
         android:icon="@drawable/ic_workouts"
@@ -17,6 +19,11 @@
         android:id="@+id/weightTracker"
         android:icon="@drawable/ic_weight"
         android:title="Weight Tracker" />
+        </menu>
+    </item>
+
+    <item android:title="Extras">
+        <menu>
     <item
         android:id="@+id/contact"
         android:icon="@drawable/ic_contact"
@@ -25,4 +32,14 @@
         android:id="@+id/settings"
         android:icon="@drawable/ic_settings"
         android:title="Settings" />
+        </menu>
+    </item>
+    <item android:title="Access Control">
+        <menu>
+            <item
+                android:id="@+id/nav_sign_out"
+                android:icon="@android:drawable/ic_menu_revert"
+                android:title="@string/sign_out" />
+        </menu>
+    </item>
 </menu>

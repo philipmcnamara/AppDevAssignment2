@@ -54,5 +54,6 @@
     <string name="enter_weight">Enter Weight</string>
     <string name="title_activity_settings">SettingsActivity</string>
     <string name="auth_failed">Auth Fail</string>
+    <string name="sign_out">Sign Out</string>
 
 </resources>

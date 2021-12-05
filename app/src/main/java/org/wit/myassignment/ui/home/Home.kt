@@ -114,4 +114,11 @@ class Home : AppCompatActivity(),NavigationView.OnNavigationItemSelectedListener
         val fragment = supportFragmentManager.beginTransaction()
         fragment.replace(R.id.fragment_container, frag).commit()
     }
+
+    fun signOut(item: MenuItem) {
+        loggedInViewModel.logOut()
+        val intent = Intent(this, Login::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+        startActivity(intent)
+    }
 }
