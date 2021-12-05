@@ -25,15 +25,11 @@ import androidx.lifecycle.Observer
 
 class Home : AppCompatActivity(),NavigationView.OnNavigationItemSelectedListener {
 
-
-
-
     private lateinit var loggedInViewModel : LoggedInViewModel
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
-        Timber.i("home attempted access")
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
         setSupportActionBar(toolbar2)
@@ -44,8 +40,6 @@ class Home : AppCompatActivity(),NavigationView.OnNavigationItemSelectedListener
         toggle.syncState()
         nav_menu.setNavigationItemSelectedListener (this)
 
-
-
     }
 
     public override fun onStart() {
@@ -54,12 +48,14 @@ class Home : AppCompatActivity(),NavigationView.OnNavigationItemSelectedListener
         loggedInViewModel.liveFirebaseUser.observe(this, Observer { firebaseUser ->
             if (firebaseUser != null) {
                 loggedInViewModel.liveFirebaseUser.value!!
+                Timber.i("onStart activated, first If hit")
             }
         })
 
         loggedInViewModel.loggedOut.observe(this, Observer { loggedout ->
             if (loggedout) {
                 startActivity(Intent(this, Login::class.java))
+                Timber.i("onStart activated, second If hit")
             }
         })
 

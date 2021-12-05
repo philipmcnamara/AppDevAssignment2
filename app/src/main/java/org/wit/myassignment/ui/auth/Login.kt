@@ -17,9 +17,6 @@ import androidx.lifecycle.Observer
 
 
 
-
-
-
 class Login : AppCompatActivity() {
 
     lateinit var app: MainApp
@@ -38,8 +35,10 @@ class Login : AppCompatActivity() {
         }
 
         Loginbutton.setOnClickListener {
-            signIn(loginBinding.loginEmail.text.toString(),
-                loginBinding.loginPassword.text.toString())
+            signIn(loginEmail.text.toString(),
+                loginPassword.text.toString())
+            Timber.i("Login Button Accessed")
+
         }
         skipButton.setOnClickListener{
             val intent = Intent(this, SplashScreen::class.java)
@@ -53,7 +52,10 @@ class Login : AppCompatActivity() {
         loginRegisterViewModel = ViewModelProvider(this).get(LoginRegisterViewModel::class.java)
         loginRegisterViewModel.liveFirebaseUser.observe(this, Observer
         { firebaseUser -> if (firebaseUser != null)
+
             startActivity(Intent(this, Home::class.java)) })
+        Timber.i("Jumping to Home")
+
 
         loginRegisterViewModel.firebaseAuthManager.errorStatus.observe(this, Observer
         { status -> checkStatus(status) })
@@ -85,20 +87,20 @@ class Login : AppCompatActivity() {
     private fun validateForm(): Boolean {
         var valid = true
 
-        val email = loginBinding.loginEmail.text.toString()
+        val email = loginEmail.text.toString()
         if (TextUtils.isEmpty(email)) {
-            loginBinding.loginEmail.error = "Required."
+            loginEmail.error = "Required."
             valid = false
         } else {
-            loginBinding.loginEmail.error = null
+            loginEmail.error = null
         }
 
-        val password = loginBinding.loginPassword.text.toString()
+        val password = loginPassword.text.toString()
         if (TextUtils.isEmpty(password)) {
-            loginBinding.loginPassword.error = "Required."
+            loginPassword.error = "Required."
             valid = false
         } else {
-            loginBinding.loginPassword.error = null
+            loginPassword.error = null
         }
         return valid
     }
