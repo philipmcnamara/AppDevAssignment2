@@ -115,4 +115,46 @@
 
     </androidx.cardview.widget.CardView>
 
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/middleLower_card"
+        android:layout_width="386dp"
+        android:layout_height="90dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.27"
+        app:layout_constraintHorizontal_bias="0.36"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/middle_card"
+        app:layout_constraintVertical_bias="0.098">
+
+        <RelativeLayout
+            android:layout_width="375dp"
+            android:layout_height="93dp"
+            android:layout_below="@id/middle_card"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/middle_card"
+            app:layout_constraintVertical_bias="0.106"
+            tools:ignore="ExtraText">
+
+            <Button
+                android:id="@+id/btnLogOut"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="101dp"
+                android:layout_marginEnd="114dp"
+                android:layout_marginBottom="23dp"
+                android:text="Log Out" />
+
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

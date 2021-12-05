@@ -52,8 +52,9 @@ class Home : AppCompatActivity(),NavigationView.OnNavigationItemSelectedListener
         super.onStart()
         loggedInViewModel = ViewModelProvider(this).get(LoggedInViewModel::class.java)
         loggedInViewModel.liveFirebaseUser.observe(this, Observer { firebaseUser ->
-            if (firebaseUser != null)
+            if (firebaseUser != null) {
                 loggedInViewModel.liveFirebaseUser.value!!
+            }
         })
 
         loggedInViewModel.loggedOut.observe(this, Observer { loggedout ->
@@ -100,7 +101,6 @@ class Home : AppCompatActivity(),NavigationView.OnNavigationItemSelectedListener
                 val intent = Intent(this, SettingsActivity::class.java)
                 startActivity(intent)
                 finish()
-
             }
         }
         return true
@@ -115,10 +115,5 @@ class Home : AppCompatActivity(),NavigationView.OnNavigationItemSelectedListener
         fragment.replace(R.id.fragment_container, frag).commit()
     }
 
-    fun signOut(item: MenuItem) {
-        loggedInViewModel.logOut()
-        val intent = Intent(this, Login::class.java)
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
-        startActivity(intent)
-    }
+
 }

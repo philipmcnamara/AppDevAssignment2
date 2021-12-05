@@ -5,48 +5,45 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.widget.Toast
-import androidx.lifecycle.ViewModelProvider
-import kotlinx.android.synthetic.main.activity_login.*
+import com.google.android.material.snackbar.Snackbar
 import org.wit.myassignment.R
-import org.wit.myassignment.ui.home.Home
-import org.wit.myassignment.ui.splashscreen.SplashScreen
-import org.wit.myassignment.databinding.ActivityLoginBinding
+import org.wit.myassignment.databinding.ActivityRegisterBinding
 import org.wit.myassignment.main.MainApp
+import org.wit.myassignment.models.UserModel
 import timber.log.Timber
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import org.wit.myassignment.ui.home.Home
 
 
-
-
-
-
-class Login : AppCompatActivity() {
-
-    lateinit var app: MainApp
-    private lateinit var loginBinding : ActivityLoginBinding
+class Register : AppCompatActivity() {
+    private lateinit var registerBinding: ActivityRegisterBinding
     private lateinit var loginRegisterViewModel : LoginRegisterViewModel
+    lateinit var app: MainApp
+    var user = UserModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        loginBinding = ActivityLoginBinding.inflate(layoutInflater)
-        setContentView(R.layout.activity_login)
+        setContentView(R.layout.activity_register)
+        registerBinding = ActivityRegisterBinding.inflate(layoutInflater)
+        setContentView(registerBinding.root)
 
 
-        btnRegLogin.setOnClickListener {
-            startActivity(Intent(this,Register::class.java))
-            overridePendingTransition(R.anim.slide_from_right,R.anim.slide_to_left)
+        app = application as MainApp
+
+        registerBinding.btnLogRegister.setOnClickListener {
+            onBackPressed()
         }
 
-        Loginbutton.setOnClickListener {
-            signIn(loginBinding.loginEmail.text.toString(),
-                loginBinding.loginPassword.text.toString())
+        registerBinding.RegisterButton.setOnClickListener() {
+
+            createAccount(registerBinding.userEmail.text.toString(),
+                registerBinding.userPassword.text.toString())
         }
-        skipButton.setOnClickListener{
-            val intent = Intent(this, SplashScreen::class.java)
-            startActivity(intent)
-            finish()
-        }
+        Timber.i("register Button Pressed: $user")
+        setResult(RESULT_OK)
     }
+
     public override fun onStart() {
         super.onStart()
         // Check if user is signed in (non-null) and update UI accordingly.
@@ -59,14 +56,20 @@ class Login : AppCompatActivity() {
         { status -> checkStatus(status) })
     }
 
-
-    //Required to exit app from Login Screen - must investigate this further
     override fun onBackPressed() {
         super.onBackPressed()
-        Toast.makeText(this,"Click again to Close App...",Toast.LENGTH_LONG).show()
+        overridePendingTransition(R.anim.slide_from_left,R.anim.slide_to_right)
+        Toast.makeText(this,"Click again to Close App...", Toast.LENGTH_LONG).show()
         finish()
     }
 
+
+    private fun createAccount(email: String, password: String) {
+        Timber.d("createAccount:$email")
+        if (!validateForm()) { return }
+
+        loginRegisterViewModel.register(email,password)
+    }
 
     private fun signIn(email: String, password: String) {
         Timber.d("signIn:$email")
@@ -82,26 +85,27 @@ class Login : AppCompatActivity() {
                 Toast.LENGTH_LONG).show()
     }
 
+
     private fun validateForm(): Boolean {
         var valid = true
 
-        val email = loginBinding.loginEmail.text.toString()
+        val email = registerBinding.userEmail.text.toString()
         if (TextUtils.isEmpty(email)) {
-            loginBinding.loginEmail.error = "Required."
+            registerBinding.userEmail.error = "Required."
             valid = false
         } else {
-            loginBinding.loginEmail.error = null
+            registerBinding.userEmail.error = null
         }
 
-        val password = loginBinding.loginPassword.text.toString()
+        val password = registerBinding.userPassword.text.toString()
         if (TextUtils.isEmpty(password)) {
-            loginBinding.loginPassword.error = "Required."
+            registerBinding.userPassword.error = "Required."
             valid = false
         } else {
-            loginBinding.loginPassword.error = null
+            registerBinding.userPassword.error = null
         }
         return valid
     }
+
+
 }
-
-
