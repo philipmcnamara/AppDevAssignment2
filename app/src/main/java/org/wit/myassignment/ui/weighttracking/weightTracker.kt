@@ -15,12 +15,10 @@ import java.text.Format
 import java.text.ParsePosition
 import java.util.*
 
-var weightArrayList: ArrayList<exerciseModel> = ArrayList()
-lateinit var app: MainApp
-var routines = app.routines.findAll()
 
 
-class WeightTracker : AppCompatActivity() {
+
+class weightTracker : AppCompatActivity() {
 
 
 
@@ -30,8 +28,6 @@ class WeightTracker : AppCompatActivity() {
 
         lateinit var app: MainApp
 
-        weightArrayList.addAll(routines)
-        Timber.i("WeightList : ${weightArrayList}")
 
         val daysTracked = arrayOf<Number>(1,2,3,4,5,6,7,8,9,10)
         val weightList = arrayOf<Number>(84,82,81,83,86,85,81,79,75)
@@ -62,7 +58,7 @@ class WeightTracker : AppCompatActivity() {
     }
 
     fun Home(view: android.view.View) {
-        val intent = Intent(this, org.wit.myassignment.ui.home.Home::class.java)
+        val intent = Intent(this, RoutineActivity::class.java)
         startActivity(intent)
         finish()
     }

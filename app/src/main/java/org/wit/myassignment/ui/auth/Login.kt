@@ -14,7 +14,6 @@ import org.wit.myassignment.databinding.ActivityLoginBinding
 import org.wit.myassignment.main.MainApp
 import timber.log.Timber
 import androidx.lifecycle.Observer
-import org.wit.myassignment.ui.settings.SettingsActivity
 
 
 class Login : AppCompatActivity() {
@@ -22,6 +21,8 @@ class Login : AppCompatActivity() {
     lateinit var app: MainApp
     private lateinit var loginBinding : ActivityLoginBinding
     private lateinit var loginRegisterViewModel : LoginRegisterViewModel
+    private lateinit var loggedInViewModel : LoggedInViewModel
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,19 +47,28 @@ class Login : AppCompatActivity() {
             finish()
         }
     }
-    public override fun onStart() {
+
+    override fun onStart() {
         super.onStart()
         // Check if user is signed in (non-null) and update UI accordingly.
         loginRegisterViewModel = ViewModelProvider(this).get(LoginRegisterViewModel::class.java)
         loginRegisterViewModel.liveFirebaseUser.observe(this, Observer
         { firebaseUser -> if (firebaseUser != null)
-            startActivity(Intent(this, Home::class.java)) })
+
+            startActivity(Intent(this, SplashScreen::class.java)) })
         Timber.i("Jumping to Home")
 
 
         loginRegisterViewModel.firebaseAuthManager.errorStatus.observe(this, Observer
         { status -> checkStatus(status) })
     }
+
+
+
+
+
+
+
 
 
     //Required to exit app from Login Screen - must investigate this further

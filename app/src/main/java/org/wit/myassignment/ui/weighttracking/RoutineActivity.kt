@@ -7,11 +7,13 @@ import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
+import kotlinx.android.synthetic.main.activity_plans.*
 import org.wit.myassignment.R
 import org.wit.myassignment.databinding.ActivityPlansBinding
 import org.wit.myassignment.main.MainApp
 import org.wit.myassignment.models.exerciseModel
 import org.wit.myassignment.ui.home.Home
+import org.wit.myassignment.ui.workouts.TrainerListActivity
 import timber.log.Timber
 import timber.log.Timber.i
 
@@ -47,6 +49,13 @@ class RoutineActivity  : AppCompatActivity() {
                 setResult(RESULT_OK)
                 finish()
             }
+        }
+
+        binding.WeightTracker.setOnClickListener() {
+            val intent = Intent(this, weightTracker::class.java)
+            startActivity(intent)
+            finish()
+
         }
 
         binding.btnAdd.setOnClickListener() {
