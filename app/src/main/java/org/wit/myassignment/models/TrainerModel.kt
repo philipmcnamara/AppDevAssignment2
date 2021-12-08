@@ -9,9 +9,9 @@ data class TrainerModel(var id: Long = 0,
                         var title: String = "") : Parcelable
 
 @Parcelize
-data class exerciseModel (
+data class WeightModel (
     var id: Long = 0,
-    var title: String = "",
-    var Set1: String = ""
+    var currentWeight: String = "",
+    var dayOfMeasurement: String = ""
     ) : Parcelable
 

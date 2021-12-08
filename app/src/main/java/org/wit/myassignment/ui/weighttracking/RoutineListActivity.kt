@@ -11,7 +11,7 @@ import org.wit.myassignment.adapters.RoutineAdapter
 import org.wit.myassignment.adapters.RoutineListener
 import org.wit.myassignment.databinding.ActivityPlansListBinding
 import org.wit.myassignment.main.MainApp
-import org.wit.myassignment.models.exerciseModel
+import org.wit.myassignment.models.WeightModel
 import org.wit.myassignment.ui.home.Home
 import timber.log.Timber
 import timber.log.Timber.i
@@ -64,9 +64,9 @@ class RoutineListActivity : AppCompatActivity(), RoutineListener {
         return super.onOptionsItemSelected(item)
     }
 
-    override fun onPlanClick(routine: exerciseModel) {
+    override fun onPlanClick(weight: WeightModel) {
         val launcherIntent = Intent(this, RoutineActivity::class.java)
-        launcherIntent.putExtra("routine_edit", routine)
+        launcherIntent.putExtra("routine_edit", weight)
         i("Add Button Pressed")
         startActivityForResult(launcherIntent, 0)
     }

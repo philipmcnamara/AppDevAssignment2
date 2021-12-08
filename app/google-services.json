@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "686118462309",
+    "firebase_url": "https://appdevassignment2-b4925-default-rtdb.firebaseio.com",
     "project_id": "appdevassignment2-b4925",
     "storage_bucket": "appdevassignment2-b4925.appspot.com"
   },
@@ -18,43 +19,6 @@
           "client_type": 1,
           "android_info": {
             "package_name": "org.wit.myassignment",
-            "certificate_hash": "78c58d3f3bec0ac45af12a04f6a4918257472661"
-          }
-        },
-        {
-          "client_id": "686118462309-35rg0i9ujvjvgeppp2piuhbteri0hksr.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyDvQ0JYsCt8n1UL0UPweIeuxW1aVG82NMY"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "686118462309-35rg0i9ujvjvgeppp2piuhbteri0hksr.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:686118462309:android:94202fae59718b3fa6378c",
-        "android_client_info": {
-          "package_name": "org.wit.myassignment.activities"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "686118462309-hi25fe67vo8s8b4n0c0855qbai2e501v.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "org.wit.myassignment.activities",
             "certificate_hash": "78c58d3f3bec0ac45af12a04f6a4918257472661"
           }
         },

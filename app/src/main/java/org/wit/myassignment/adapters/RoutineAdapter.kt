@@ -4,13 +4,13 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import org.wit.myassignment.databinding.CardRoutineBinding
-import org.wit.myassignment.models.exerciseModel
+import org.wit.myassignment.models.WeightModel
 
 interface RoutineListener {
-    fun onPlanClick(plan: exerciseModel)
+    fun onPlanClick(plan: WeightModel)
 }
 
-class RoutineAdapter constructor(private var routines: List<exerciseModel>,
+class RoutineAdapter constructor(private var weights: List<WeightModel>,
                                  private val listener: RoutineListener) :
     RecyclerView.Adapter<RoutineAdapter.MainHolder>() {
 
@@ -21,18 +21,18 @@ class RoutineAdapter constructor(private var routines: List<exerciseModel>,
     }
 
     override fun onBindViewHolder(holder: MainHolder, position: Int) {
-        val routine = routines[holder.adapterPosition]
+        val routine = weights[holder.adapterPosition]
         holder.bind(routine, listener)
     }
 
-    override fun getItemCount(): Int = routines.size
+    override fun getItemCount(): Int = weights.size
 
     class MainHolder(private val binding : CardRoutineBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(routine: exerciseModel, listener: RoutineListener) {
-            binding.planRoutine.text = routine.title
-            binding.root.setOnClickListener { listener.onPlanClick(routine) }
+        fun bind(weight: WeightModel, listener: RoutineListener) {
+            binding.planRoutine.text = weight.currentWeight
+            binding.root.setOnClickListener { listener.onPlanClick(weight) }
         }
     }
 }

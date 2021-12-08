@@ -10,32 +10,32 @@ internal fun getRoutineId(): Long {
 
 class RoutineMemStore : RoutineStore {
 
-    val routines = ArrayList<exerciseModel>()
+    val weights = ArrayList<WeightModel>()
 
-    override fun findAll() : List<exerciseModel>{
-        return routines
+    override fun findAll() : List<WeightModel>{
+        return weights
     }
 
-    override fun create(routine: exerciseModel){
-        routine.id = getRoutineId()
-        routines.add(routine)
+    override fun create(weight: WeightModel){
+        weight.id = getRoutineId()
+        weights.add(weight)
         logAll()
     }
 
-    override fun update(routine: exerciseModel) {
-        var foundPlan: exerciseModel? = routines.find { p -> p.id == routine.id }
+    override fun update(weight: WeightModel) {
+        var foundPlan: WeightModel? = weights.find { p -> p.id == weight.id }
         if(foundPlan != null){
-            foundPlan.title = routine.title
+            foundPlan.currentWeight = weight.currentWeight
             logAll()
         }
     }
 
     fun logAll() {
-        routines.forEach{ i("${it}") }
+        weights.forEach{ i("${it}") }
     }
 
-    override fun delete(routine: exerciseModel) {
-        routines.remove(routine)
+    override fun delete(routine: WeightModel) {
+        weights.remove(routine)
         logAll()
     }
 

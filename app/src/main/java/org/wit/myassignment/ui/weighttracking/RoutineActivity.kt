@@ -5,13 +5,17 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_plans.*
 import org.wit.myassignment.R
 import org.wit.myassignment.databinding.ActivityPlansBinding
 import org.wit.myassignment.main.MainApp
-import org.wit.myassignment.models.exerciseModel
+import org.wit.myassignment.models.WeightModel
+import org.wit.myassignment.ui.data.WeightData
 import org.wit.myassignment.ui.home.Home
 import org.wit.myassignment.ui.workouts.TrainerListActivity
 import timber.log.Timber
@@ -19,12 +23,14 @@ import timber.log.Timber.i
 
 class RoutineActivity  : AppCompatActivity() {
     private lateinit var binding: ActivityPlansBinding
-    var routine = exerciseModel()
+    private lateinit var database : DatabaseReference
+    var weight = WeightModel()
     lateinit var app: MainApp
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         var edit = false
+
 
         setContentView(R.layout.activity_plans_list)
 
@@ -34,18 +40,18 @@ class RoutineActivity  : AppCompatActivity() {
         setSupportActionBar(binding.toolbarAddRoutine)
         app = application as MainApp
 
-        binding.planRoutine.setText(routine.title)
-        binding.planSet1.setText(routine.Set1)
+        binding.currentWeight.setText(weight.currentWeight)
+        binding.dayOfMeasurement.setText(weight.dayOfMeasurement)
 
         if (intent.hasExtra("routine_Edit")) {
             edit = true
-            routine = intent.extras?.getParcelable("routine_Edit")!!
-            binding.planRoutine.setText(routine.title)
-            binding.planSet1.setText(routine.Set1)
+            weight = intent.extras?.getParcelable("routine_Edit")!!
+            binding.currentWeight.setText(weight.currentWeight)
+            binding.dayOfMeasurement.setText(weight.dayOfMeasurement)
             binding.btnAdd.setText(R.string.save_routine)
             binding.btnDeletePlan.setVisibility(View.VISIBLE)
             binding.btnDeletePlan.setOnClickListener() {
-                app.routines.delete(routine)
+                app.routines.delete(weight)
                 setResult(RESULT_OK)
                 finish()
             }
@@ -59,19 +65,53 @@ class RoutineActivity  : AppCompatActivity() {
         }
 
         binding.btnAdd.setOnClickListener() {
-            routine.title = binding.planRoutine.text.toString()
-            routine.Set1 = binding.planSet1.text.toString()
-            if (routine.title.isEmpty()) {
-                i("add Button Pressed: ${routine}")
+
+
+
+
+
+
+
+
+
+            weight.currentWeight = binding.currentWeight.text.toString()
+            weight.dayOfMeasurement = binding.dayOfMeasurement.text.toString()
+            if (weight.currentWeight.isEmpty()) {
+                i("add Button Pressed: ${weight}")
                 Snackbar.make(it,R.string.enter_routine_title, Snackbar.LENGTH_LONG)
                     .show()
             } else {
                 if (edit) {
-                    app.routines.update(routine.copy())
-                    i("add Button Pressed: ${routine}")
+                    app.routines.update(weight.copy())
+                    i("add Button Pressed: ${weight}")
                 } else {
-                    app.routines.create(routine.copy())
-                    i("add Button Pressed: ${routine}")
+
+
+                    val currentWeight = binding.currentWeight.text.toString()
+                    val dayOfMeasurement = binding.dayOfMeasurement.text.toString()
+                    database = FirebaseDatabase.getInstance().getReference("weightData")
+
+                    val WeightData = WeightData(currentWeight, dayOfMeasurement)
+
+                    database.child(dayOfMeasurement).setValue(WeightData).addOnSuccessListener {
+
+                        Timber.i("Entered data base brackets")
+                        Timber.i("Entered data base ${database}")
+
+
+                        Toast.makeText(this, "Sucessfully saved", Toast.LENGTH_SHORT).show()
+                    }.addOnFailureListener{
+                        Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show()
+                    }
+
+
+                    app.routines.create(weight.copy())
+
+
+
+
+
+                    i("add Button Pressed: ${weight}")
                 }
             }
             setResult(RESULT_OK)

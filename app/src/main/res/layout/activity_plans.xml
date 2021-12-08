@@ -40,21 +40,22 @@
                 android:orientation="vertical">
 
                 <EditText
-                    android:id="@+id/planRoutine"
+                    android:id="@+id/currentWeight"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
                     android:layout_margin="8dp"
                     android:autofillHints=""
-                    android:hint="Enter Weight (Kgs)"
+                    android:hint="@string/enter_weight_kgs"
                     android:inputType="text"
                     android:maxLength="25"
                     android:maxLines="1"
                     android:padding="8dp"
                     android:textColor="@color/colorPrimaryDark"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    tools:ignore="TextFields" />
 
                 <EditText
-                    android:id="@+id/planSet1"
+                    android:id="@+id/dayOfMeasurement"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
                     android:layout_margin="8dp"

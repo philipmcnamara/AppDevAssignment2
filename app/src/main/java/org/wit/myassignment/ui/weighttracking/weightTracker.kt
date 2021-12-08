@@ -8,14 +8,12 @@ import com.androidplot.xy.*
 import kotlinx.android.synthetic.main.activity_weight_tracker.*
 import org.wit.myassignment.R
 import org.wit.myassignment.main.MainApp
-import org.wit.myassignment.models.exerciseModel
+import org.wit.myassignment.models.WeightModel
 import timber.log.Timber
 import java.text.FieldPosition
 import java.text.Format
 import java.text.ParsePosition
 import java.util.*
-
-
 
 
 class weightTracker : AppCompatActivity() {

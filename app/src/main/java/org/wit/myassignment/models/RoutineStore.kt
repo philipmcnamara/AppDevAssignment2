@@ -1,8 +1,8 @@
 package org.wit.myassignment.models
 
 interface RoutineStore {
-    fun findAll(): List<exerciseModel>
-    fun create(plan: exerciseModel)
-    fun update(plan: exerciseModel)
-    fun delete(plan: exerciseModel)
+    fun findAll(): List<WeightModel>
+    fun create(plan: WeightModel)
+    fun update(plan: WeightModel)
+    fun delete(plan: WeightModel)
 }
