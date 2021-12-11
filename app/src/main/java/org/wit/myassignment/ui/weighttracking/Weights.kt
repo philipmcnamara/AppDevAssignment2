@@ -49,7 +49,7 @@ class Weights  : AppCompatActivity() {
             binding.btnAdd.setText(R.string.save_routine)
             binding.btnDeletePlan.setVisibility(View.VISIBLE)
             binding.btnDeletePlan.setOnClickListener() {
-                app.routines.delete(weight)
+                app.weights.delete(weight)
                 setResult(RESULT_OK)
                 finish()
             }
@@ -64,7 +64,7 @@ class Weights  : AppCompatActivity() {
                     .show()
             } else {
                 if (edit) {
-                    app.routines.update(weight.copy())
+                    app.weights.update(weight.copy())
                     i("add Button Pressed: ${weight}")
                 } else {
 
@@ -75,16 +75,15 @@ class Weights  : AppCompatActivity() {
 
                     val WeightData = WeightData(currentWeight, dayOfMeasurement)
 
-                    database.child(dayOfMeasurement).setValue(WeightData).addOnSuccessListener {
+                    database.child("Day of Measurement : $dayOfMeasurement").setValue(WeightData).addOnSuccessListener {
 
-                        Timber.i("Entered data base brackets")
                         Timber.i("Entered data base ${database}")
 
                         Toast.makeText(this, "Sucessfully saved", Toast.LENGTH_SHORT).show()
                     }.addOnFailureListener{
                         Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show()
                     }
-                    app.routines.create(weight.copy())
+                    app.weights.create(weight.copy())
                     i("add Button Pressed: ${weight}")
                 }
             }

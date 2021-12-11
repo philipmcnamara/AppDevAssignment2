@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="org.wit.myassignment.ui.weighttracking.WeightList">
+    tools:context=".ui.weighttracking.WeightList">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -13,7 +13,8 @@
         android:background="@color/colorAccent"
         android:fitsSystemWindows="true"
         app:elevation="0dip"
-        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        tools:ignore="MissingConstraints">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbarRoutine"
@@ -23,53 +24,36 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewRoutine"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollbars="vertical"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
-
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/button_card"
-        android:layout_width="396dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="28dp"
-        app:cardCornerRadius="8dp"
-        app:cardElevation="8dp"
+        android:id="@+id/weightList"
+        android:layout_width="410dp"
+        android:layout_height="622dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.27"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/linear_layout">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:ignore="ExtraText">
-
-        </RelativeLayout>
-
-
-    </androidx.cardview.widget.CardView>
+        app:layout_constraintTop_toTopOf="parent"
+        tools:listitem="@layout/weight_item" />
 
     <Button
-        android:id="@+id/WeightTracker"
-        android:layout_width="374dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="378dp"
+        android:layout_height="47dp"
         android:onClick="navToWeight"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:background="@color/colorAccent"
-        android:paddingTop="8dp"
-        android:paddingBottom="8dp"
-        android:stateListAnimator="@null"
-        android:text="@string/view_progress"
-        android:backgroundTint="@color/black"
-        android:textColor="@color/colorPrimary"
-        android:textSize="16sp"
-        app:layout_anchor="@+id/recyclerViewRoutine"
-        app:layout_anchorGravity="bottom|center" />
+        android:text="view Graph"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/weightList" />
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="69dp"
+        android:layout_height="50dp"
+        android:icon="@drawable/ic_home"
+        android:onClick="Home"
+        android:text="@string/home"
+        android:textColor="#455A64"
+        tools:ignore="MissingConstraints,TextContrastCheck">
+
+    </androidx.appcompat.widget.AppCompatButton>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

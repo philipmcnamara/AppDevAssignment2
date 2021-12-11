@@ -85,8 +85,8 @@ class Home : AppCompatActivity(),NavigationView.OnNavigationItemSelectedListener
             }
             R.id.weightTracker -> {
                 setToolbarTitle("Weight Tracker")
-                val intent = Intent(this, WeightList::class.java)
-                startActivity(intent)
+                var i = Intent(this,WeightList::class.java)
+                startActivity(i)
                 finish()
             }
             R.id.contact -> {

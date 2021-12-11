@@ -1,3 +1,3 @@
 package org.wit.myassignment.ui.data
 
-data class WeightData(val currentWeight : String?, val dayOfMeasurement : String? )
+data class WeightData(var currentWeight : String ?= null,var dayOfMeasurement : String ?= null)
