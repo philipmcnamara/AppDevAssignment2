@@ -7,23 +7,23 @@ import android.view.MenuItem
 import android.view.View
 import com.google.android.material.snackbar.Snackbar
 import org.wit.myassignment.R
-import org.wit.myassignment.databinding.ActivityTrainerBinding
+import org.wit.myassignment.databinding.TrainerBinding
 import org.wit.myassignment.main.MainApp
 import org.wit.myassignment.models.TrainerModel
 import timber.log.Timber.i
 
 class TrainerActivity  : AppCompatActivity() {
-    private lateinit var binding: ActivityTrainerBinding
+    private lateinit var binding: TrainerBinding
     var plan = TrainerModel()
     lateinit var app: MainApp
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         var edit = false
-        setContentView(R.layout.activity_trainer)
+        setContentView(R.layout.trainer)
 
 
-        binding = ActivityTrainerBinding.inflate(layoutInflater)
+        binding = TrainerBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.toolbarAdd.title = title
         setSupportActionBar(binding.toolbarAdd)

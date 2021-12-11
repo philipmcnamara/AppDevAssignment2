@@ -10,19 +10,18 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import kotlinx.android.synthetic.main.activity_plans.*
+import kotlinx.android.synthetic.main.weights.*
 import org.wit.myassignment.R
-import org.wit.myassignment.databinding.ActivityPlansBinding
+import org.wit.myassignment.databinding.WeightsBinding
 import org.wit.myassignment.main.MainApp
 import org.wit.myassignment.models.WeightModel
 import org.wit.myassignment.ui.data.WeightData
 import org.wit.myassignment.ui.home.Home
-import org.wit.myassignment.ui.workouts.TrainerListActivity
 import timber.log.Timber
 import timber.log.Timber.i
 
-class RoutineActivity  : AppCompatActivity() {
-    private lateinit var binding: ActivityPlansBinding
+class Weights  : AppCompatActivity() {
+    private lateinit var binding: WeightsBinding
     private lateinit var database : DatabaseReference
     var weight = WeightModel()
     lateinit var app: MainApp
@@ -32,9 +31,9 @@ class RoutineActivity  : AppCompatActivity() {
         var edit = false
 
 
-        setContentView(R.layout.activity_plans_list)
+        setContentView(R.layout.weights_list)
 
-        binding = ActivityPlansBinding.inflate(layoutInflater)
+        binding = WeightsBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.toolbarAddRoutine.title = title
         setSupportActionBar(binding.toolbarAddRoutine)
@@ -58,21 +57,12 @@ class RoutineActivity  : AppCompatActivity() {
         }
 
         binding.WeightTracker.setOnClickListener() {
-            val intent = Intent(this, weightTracker::class.java)
+            val intent = Intent(this, WeightTracker::class.java)
             startActivity(intent)
             finish()
-
         }
 
         binding.btnAdd.setOnClickListener() {
-
-
-
-
-
-
-
-
 
             weight.currentWeight = binding.currentWeight.text.toString()
             weight.dayOfMeasurement = binding.dayOfMeasurement.text.toString()
@@ -86,7 +76,7 @@ class RoutineActivity  : AppCompatActivity() {
                     i("add Button Pressed: ${weight}")
                 } else {
 
-
+                    //firebase link
                     val currentWeight = binding.currentWeight.text.toString()
                     val dayOfMeasurement = binding.dayOfMeasurement.text.toString()
                     database = FirebaseDatabase.getInstance().getReference("weightData")
@@ -98,19 +88,11 @@ class RoutineActivity  : AppCompatActivity() {
                         Timber.i("Entered data base brackets")
                         Timber.i("Entered data base ${database}")
 
-
                         Toast.makeText(this, "Sucessfully saved", Toast.LENGTH_SHORT).show()
                     }.addOnFailureListener{
                         Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show()
                     }
-
-
                     app.routines.create(weight.copy())
-
-
-
-
-
                     i("add Button Pressed: ${weight}")
                 }
             }
@@ -144,10 +126,13 @@ class RoutineActivity  : AppCompatActivity() {
 
     fun navToWeight(view: android.view.View) {
 
-        val intent = Intent(this, WeightTracker::class.java)
+        Timber.i("Nav to Graph Button Clicked")
+
+        val intent = Intent(this, org.wit.myassignment.ui.weighttracking.WeightTracker::class.java)
         startActivity(intent)
         finish()
     }
+
 
 
 }

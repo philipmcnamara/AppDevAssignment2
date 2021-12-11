@@ -5,9 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.widget.Toast
-import com.google.android.material.snackbar.Snackbar
 import org.wit.myassignment.R
-import org.wit.myassignment.databinding.ActivityRegisterBinding
+import org.wit.myassignment.databinding.RegisterBinding
 import org.wit.myassignment.main.MainApp
 import org.wit.myassignment.models.UserModel
 import timber.log.Timber
@@ -17,15 +16,15 @@ import org.wit.myassignment.ui.home.Home
 
 
 class Register : AppCompatActivity() {
-    private lateinit var registerBinding: ActivityRegisterBinding
+    private lateinit var registerBinding: RegisterBinding
     private lateinit var loginRegisterViewModel : LoginRegisterViewModel
     lateinit var app: MainApp
     var user = UserModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_register)
-        registerBinding = ActivityRegisterBinding.inflate(layoutInflater)
+        setContentView(R.layout.register)
+        registerBinding = RegisterBinding.inflate(layoutInflater)
         setContentView(registerBinding.root)
 
 

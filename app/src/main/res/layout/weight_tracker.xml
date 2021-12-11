@@ -7,7 +7,7 @@
     android:background="#CCCCCC"
     android:padding="0dp"
     android:layout_height="match_parent"
-    tools:context=".ui.weighttracking.weightTracker">
+    tools:context=".ui.weighttracking.WeightTracker">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -23,7 +23,9 @@
             android:layout_height="50dp"
             android:icon="@drawable/ic_home"
             android:onClick="Home"
-            android:text="@string/home">
+            android:text="@string/home"
+            android:textColor="#455A64"
+            tools:ignore="TextContrastCheck">
 
         </androidx.appcompat.widget.AppCompatButton>
 

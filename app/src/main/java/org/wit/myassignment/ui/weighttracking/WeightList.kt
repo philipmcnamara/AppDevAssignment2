@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import org.wit.myassignment.R
 import org.wit.myassignment.adapters.RoutineAdapter
 import org.wit.myassignment.adapters.RoutineListener
-import org.wit.myassignment.databinding.ActivityPlansListBinding
+import org.wit.myassignment.databinding.WeightsListBinding
 import org.wit.myassignment.main.MainApp
 import org.wit.myassignment.models.WeightModel
 import org.wit.myassignment.ui.home.Home
@@ -17,15 +17,15 @@ import timber.log.Timber
 import timber.log.Timber.i
 
 
-class RoutineListActivity : AppCompatActivity(), RoutineListener {
+class WeightList : AppCompatActivity(), RoutineListener {
 
     lateinit var app: MainApp
-    private lateinit var binding: ActivityPlansListBinding
+    private lateinit var binding: WeightsListBinding
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityPlansListBinding.inflate(layoutInflater)
+        binding = WeightsListBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.toolbarRoutine.title = title
@@ -46,7 +46,7 @@ class RoutineListActivity : AppCompatActivity(), RoutineListener {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.item_add -> {
-                val launcherIntent = Intent(this, RoutineActivity::class.java)
+                val launcherIntent = Intent(this, Weights::class.java)
                 startActivityForResult(launcherIntent,0)
             }
             R.id.item_add -> {
@@ -65,7 +65,7 @@ class RoutineListActivity : AppCompatActivity(), RoutineListener {
     }
 
     override fun onPlanClick(weight: WeightModel) {
-        val launcherIntent = Intent(this, RoutineActivity::class.java)
+        val launcherIntent = Intent(this, Weights::class.java)
         launcherIntent.putExtra("routine_edit", weight)
         i("Add Button Pressed")
         startActivityForResult(launcherIntent, 0)

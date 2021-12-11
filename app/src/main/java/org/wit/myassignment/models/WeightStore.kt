@@ -1,6 +1,6 @@
 package org.wit.myassignment.models
 
-interface RoutineStore {
+interface WeightStore {
     fun findAll(): List<WeightModel>
     fun create(plan: WeightModel)
     fun update(plan: WeightModel)

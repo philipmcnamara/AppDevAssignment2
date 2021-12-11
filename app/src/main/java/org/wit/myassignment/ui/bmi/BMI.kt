@@ -4,10 +4,10 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.SeekBar
-import kotlinx.android.synthetic.main.activity_bmi.*
-import kotlinx.android.synthetic.main.activity_bmiresults.*
+import kotlinx.android.synthetic.main.bmi.*
+import kotlinx.android.synthetic.main.bmiresults.*
 import org.wit.myassignment.R
-import org.wit.myassignment.databinding.ActivityBmiBinding
+import org.wit.myassignment.databinding.BmiBinding
 import org.wit.myassignment.main.MainApp
 import timber.log.Timber
 import kotlin.math.pow
@@ -15,14 +15,14 @@ import kotlin.math.pow
 class BMI : AppCompatActivity() {
 
     lateinit var app: MainApp
-    private lateinit var binding: ActivityBmiBinding
+    private lateinit var binding: BmiBinding
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        binding = ActivityBmiBinding.inflate(layoutInflater)
+        binding = BmiBinding.inflate(layoutInflater)
         setContentView(binding.root)
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_bmi)
+        setContentView(R.layout.bmi)
 
 
         seek_bar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
@@ -86,7 +86,7 @@ class BMI : AppCompatActivity() {
         }
 
         Timber.i("Bmi: ${bmi.text}")
-        setContentView(R.layout.activity_bmiresults)
+        setContentView(R.layout.bmiresults)
         showResult()
     }
 

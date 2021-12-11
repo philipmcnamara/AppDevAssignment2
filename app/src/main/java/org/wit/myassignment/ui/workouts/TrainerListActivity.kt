@@ -5,7 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
-import org.wit.myassignment.databinding.ActivityTrainerListBinding
+import org.wit.myassignment.databinding.TrainerListBinding
 import org.wit.myassignment.main.MainApp
 import android.view.Menu
 import android.view.MenuItem
@@ -24,7 +24,7 @@ import java.util.*
 class TrainerListActivity : AppCompatActivity(), PlanListener {
 
     lateinit var app: MainApp
-    private lateinit var binding: ActivityTrainerListBinding
+    private lateinit var binding: TrainerListBinding
     private lateinit var refreshIntentLauncher : ActivityResultLauncher<Intent>
 
     //val plans = ArrayList<TrainerModel>()
@@ -71,7 +71,7 @@ class TrainerListActivity : AppCompatActivity(), PlanListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityTrainerListBinding.inflate(layoutInflater)
+        binding = TrainerListBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.toolbar.title = title
         setSupportActionBar(binding.toolbar)

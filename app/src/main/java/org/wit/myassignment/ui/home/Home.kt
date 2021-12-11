@@ -9,11 +9,11 @@ import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.navigation.NavigationView
-import kotlinx.android.synthetic.main.activity_home.*
+import kotlinx.android.synthetic.main.home.*
 import kotlinx.android.synthetic.main.content_main.*
 import org.wit.myassignment.R
 import org.wit.myassignment.ui.bmi.BMI
-import org.wit.myassignment.ui.weighttracking.RoutineListActivity
+import org.wit.myassignment.ui.weighttracking.WeightList
 import org.wit.myassignment.ui.settings.SettingsActivity
 import org.wit.myassignment.ui.workouts.TrainerListActivity
 import org.wit.myassignment.ui.auth.LoggedInViewModel
@@ -31,7 +31,7 @@ class Home : AppCompatActivity(),NavigationView.OnNavigationItemSelectedListener
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home)
+        setContentView(R.layout.home)
         setSupportActionBar(toolbar2)
         Timber.i("home attempted render")
         val toggle = ActionBarDrawerToggle(this, drawerLayout, toolbar2, R.string.open, R.string.close)
@@ -85,7 +85,7 @@ class Home : AppCompatActivity(),NavigationView.OnNavigationItemSelectedListener
             }
             R.id.weightTracker -> {
                 setToolbarTitle("Weight Tracker")
-                val intent = Intent(this, RoutineListActivity::class.java)
+                val intent = Intent(this, WeightList::class.java)
                 startActivity(intent)
                 finish()
             }

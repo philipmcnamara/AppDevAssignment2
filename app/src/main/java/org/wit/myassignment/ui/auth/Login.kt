@@ -6,11 +6,10 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
-import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.login.*
 import org.wit.myassignment.R
-import org.wit.myassignment.ui.home.Home
 import org.wit.myassignment.ui.splashscreen.SplashScreen
-import org.wit.myassignment.databinding.ActivityLoginBinding
+import org.wit.myassignment.databinding.LoginBinding
 import org.wit.myassignment.main.MainApp
 import timber.log.Timber
 import androidx.lifecycle.Observer
@@ -19,15 +18,15 @@ import androidx.lifecycle.Observer
 class Login : AppCompatActivity() {
 
     lateinit var app: MainApp
-    private lateinit var loginBinding : ActivityLoginBinding
+    private lateinit var loginBinding : LoginBinding
     private lateinit var loginRegisterViewModel : LoginRegisterViewModel
     private lateinit var loggedInViewModel : LoggedInViewModel
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        loginBinding = ActivityLoginBinding.inflate(layoutInflater)
-        setContentView(R.layout.activity_login)
+        loginBinding = LoginBinding.inflate(layoutInflater)
+        setContentView(R.layout.login)
 
 
         btnRegLogin.setOnClickListener {

@@ -12,7 +12,7 @@ import org.wit.myassignment.ui.home.Home
 class SplashScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_splash_screen)
+        setContentView(R.layout.splash_screen)
 
         //give the splash image full screen view
         window.setFlags(

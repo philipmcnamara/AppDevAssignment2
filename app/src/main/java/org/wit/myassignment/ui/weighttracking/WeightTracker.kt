@@ -5,24 +5,22 @@ import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.androidplot.xy.*
-import kotlinx.android.synthetic.main.activity_weight_tracker.*
+import kotlinx.android.synthetic.main.weight_tracker.*
 import org.wit.myassignment.R
 import org.wit.myassignment.main.MainApp
-import org.wit.myassignment.models.WeightModel
-import timber.log.Timber
 import java.text.FieldPosition
 import java.text.Format
 import java.text.ParsePosition
 import java.util.*
 
 
-class weightTracker : AppCompatActivity() {
+class WeightTracker : AppCompatActivity() {
 
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_weight_tracker)
+        setContentView(R.layout.weight_tracker)
 
         lateinit var app: MainApp
 
@@ -56,7 +54,7 @@ class weightTracker : AppCompatActivity() {
     }
 
     fun Home(view: android.view.View) {
-        val intent = Intent(this, RoutineActivity::class.java)
+        val intent = Intent(this, Weights::class.java)
         startActivity(intent)
         finish()
     }
