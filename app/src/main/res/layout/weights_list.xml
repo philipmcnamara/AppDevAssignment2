@@ -29,4 +29,47 @@
         android:scrollbars="vertical"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/button_card"
+        android:layout_width="396dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="28dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.27"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linear_layout">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:ignore="ExtraText">
+
+        </RelativeLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/WeightTracker"
+        android:layout_width="374dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:onClick="navToWeight"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@color/colorAccent"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:stateListAnimator="@null"
+        android:text="@string/view_progress"
+        android:backgroundTint="@color/black"
+        android:textColor="@color/colorPrimary"
+        android:textSize="16sp"
+        app:layout_anchor="@+id/recyclerViewRoutine"
+        app:layout_anchorGravity="bottom|center" />
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

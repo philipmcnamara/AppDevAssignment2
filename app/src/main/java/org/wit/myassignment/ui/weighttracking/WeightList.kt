@@ -71,4 +71,10 @@ class WeightList : AppCompatActivity(), RoutineListener {
         startActivityForResult(launcherIntent, 0)
     }
 
+    fun navToWeight(view: android.view.View) {
+        val intent = Intent(this, WeightTracker::class.java)
+        startActivity(intent)
+        finish()
+    }
+
 }

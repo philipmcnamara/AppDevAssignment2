@@ -30,7 +30,6 @@ class Weights  : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         var edit = false
 
-
         setContentView(R.layout.weights_list)
 
         binding = WeightsBinding.inflate(layoutInflater)
@@ -55,13 +54,6 @@ class Weights  : AppCompatActivity() {
                 finish()
             }
         }
-
-        binding.WeightTracker.setOnClickListener() {
-            val intent = Intent(this, WeightTracker::class.java)
-            startActivity(intent)
-            finish()
-        }
-
         binding.btnAdd.setOnClickListener() {
 
             weight.currentWeight = binding.currentWeight.text.toString()
@@ -123,17 +115,6 @@ class Weights  : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
-
-    fun navToWeight(view: android.view.View) {
-
-        Timber.i("Nav to Graph Button Clicked")
-
-        val intent = Intent(this, org.wit.myassignment.ui.weighttracking.WeightTracker::class.java)
-        startActivity(intent)
-        finish()
-    }
-
-
 
 }
 
