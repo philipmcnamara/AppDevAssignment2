@@ -12,4 +12,5 @@
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#6A6B6C</color>
     <color name="deletecolor">#D6291C</color>
+    <color name="colorRecyclerViewDelete">#F44336</color>
 </resources>

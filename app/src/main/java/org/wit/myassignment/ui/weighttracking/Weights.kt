@@ -118,4 +118,3 @@ class Weights  : AppCompatActivity() {
     }
 
 }
-

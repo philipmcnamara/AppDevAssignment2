@@ -59,5 +59,3 @@ class WeightTracker : AppCompatActivity() {
         finish()
     }
 }
-
-

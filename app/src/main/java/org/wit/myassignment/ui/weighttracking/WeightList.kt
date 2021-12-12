@@ -4,24 +4,13 @@ import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContentProviderCompat.requireContext
-import androidx.fragment.app.activityViewModels
-import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.*
 import org.wit.myassignment.R
 import org.wit.myassignment.adapters.WeightAdapter
-import org.wit.myassignment.firebase.FirebaseDBManager.delete
-import org.wit.myassignment.models.WeightStore
 import org.wit.myassignment.ui.data.WeightData
 import org.wit.myassignment.ui.home.Home
-import org.wit.myassignment.utils.SwipeToDeleteCallback
-import org.wit.myassignment.utils.hideLoader
-import org.wit.myassignment.utils.showLoader
-import timber.log.Timber
-import java.lang.Exception
-import java.nio.file.Files.delete
 
 
 class WeightList : AppCompatActivity() {
@@ -31,7 +20,7 @@ class WeightList : AppCompatActivity() {
     private lateinit var weightArrayList : ArrayList<WeightData>
     lateinit var loader : AlertDialog
 
-    private lateinit var  weightViewModel : WeightViewModel
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,7 +34,7 @@ class WeightList : AppCompatActivity() {
         weightArrayList = arrayListOf<WeightData>()
         getUserData()
 
-   }
+    }
 
     private fun getUserData() {
 

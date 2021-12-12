@@ -8,24 +8,20 @@ import android.widget.TextView
 import org.wit.myassignment.R
 import org.wit.myassignment.ui.data.WeightData
 
-
 class WeightAdapter(private val weightList : ArrayList<WeightData>) : RecyclerView.Adapter<WeightAdapter.MyViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
 
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.weight_item,
-            parent,false)
+        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.weight_item, parent,false)
         return MyViewHolder(itemView)
-
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
 
-        val currentitem = weightList[position]
+        val currentItem = weightList[position]
 
-        holder.currentWeight.text = currentitem.currentWeight
-        holder.dayOfMeasurement.text = currentitem.dayOfMeasurement
-
+        holder.currentWeight.text = currentItem.currentWeight
+        holder.dayOfMeasurement.text = currentItem.dayOfMeasurement
     }
 
     override fun getItemCount(): Int {
@@ -38,11 +34,14 @@ class WeightAdapter(private val weightList : ArrayList<WeightData>) : RecyclerVi
     }
 
 
-
     class MyViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
 
         val currentWeight : TextView = itemView.findViewById(R.id.weightCurrent)
         val dayOfMeasurement : TextView = itemView.findViewById(R.id.weightDay)
 
     }
+
+
+
 }
+

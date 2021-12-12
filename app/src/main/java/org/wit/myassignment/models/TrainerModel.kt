@@ -8,7 +8,7 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 data class TrainerModel(var id: Long = 0,
                         var title: String = "") : Parcelable
-/*
+
 @Parcelize
 data class WeightModel (
     var id: Long = 0,
@@ -16,8 +16,8 @@ data class WeightModel (
     var dayOfMeasurement: String = ""
     ) : Parcelable
 
- */
 
+/*
 @Parcelize
 data class WeightModel(
     var uid: String? = "",
@@ -36,3 +36,5 @@ data class WeightModel(
         )
     }
 }
+
+ */
