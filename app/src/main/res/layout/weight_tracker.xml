@@ -23,7 +23,7 @@
             android:layout_height="50dp"
             android:icon="@drawable/ic_home"
             android:onClick="Home"
-            android:text="@string/home"
+            android:text="Back"
             android:textColor="#455A64"
             tools:ignore="TextContrastCheck">
 

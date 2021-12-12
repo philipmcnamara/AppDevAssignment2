@@ -49,7 +49,7 @@ class Weights  : AppCompatActivity() {
             binding.btnAdd.setText(R.string.save_routine)
             binding.btnDeletePlan.setVisibility(View.VISIBLE)
             binding.btnDeletePlan.setOnClickListener() {
-                app.weights.delete(weight)
+                //app.weights.delete(weight)
                 setResult(RESULT_OK)
                 finish()
             }
@@ -64,7 +64,7 @@ class Weights  : AppCompatActivity() {
                     .show()
             } else {
                 if (edit) {
-                    app.weights.update(weight.copy())
+                    //app.weights.update(weight.copy())
                     i("add Button Pressed: ${weight}")
                 } else {
 
@@ -83,11 +83,13 @@ class Weights  : AppCompatActivity() {
                     }.addOnFailureListener{
                         Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show()
                     }
-                    app.weights.create(weight.copy())
+                    //app.weights.create(weight.copy())
                     i("add Button Pressed: ${weight}")
                 }
             }
             setResult(RESULT_OK)
+            val intent = Intent(this, WeightList::class.java)
+            startActivity(intent)
             finish()
         }
     }

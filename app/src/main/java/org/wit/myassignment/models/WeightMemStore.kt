@@ -7,6 +7,7 @@ var theLastId = 0L
 internal fun getRoutineId(): Long {
     return theLastId++
 }
+/*
 
 class WeightMemStore : WeightStore {
 
@@ -34,9 +35,15 @@ class WeightMemStore : WeightStore {
         weights.forEach{ i("${it}") }
     }
 
-    override fun delete(routine: WeightModel) {
-        weights.remove(routine)
+    override fun delete(weight: WeightModel) {
+        weights.remove(weight)
         logAll()
     }
 
+    override fun delete(id: String) {
+        TODO("Not yet implemented")
+    }
+
 }
+
+ */

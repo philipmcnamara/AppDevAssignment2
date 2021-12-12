@@ -15,10 +15,19 @@
         android:id="@+id/bmi"
         android:icon="@drawable/ic_bmi"
         android:title="BMI" />
+        </menu>
+    </item>
+
+    <item android:title="Weight Tracking">
+        <menu>
     <item
         android:id="@+id/weightTracker"
         android:icon="@drawable/ic_weight"
-        android:title="Weight Tracker" />
+        android:title="Weight Charts" />
+    <item
+        android:id="@+id/addWeights"
+        android:icon="@drawable/ic_add"
+        android:title="Add Weight" />
         </menu>
     </item>
 

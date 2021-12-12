@@ -11,4 +11,5 @@
     <color name="colorPrimary">#FFFFFF</color>
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#6A6B6C</color>
+    <color name="deletecolor">#D6291C</color>
 </resources>

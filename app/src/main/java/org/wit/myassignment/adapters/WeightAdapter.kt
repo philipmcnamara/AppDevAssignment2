@@ -32,6 +32,12 @@ class WeightAdapter(private val weightList : ArrayList<WeightData>) : RecyclerVi
         return weightList.size
     }
 
+    fun removeAt(position: Int) {
+        weightList.removeAt(position)
+        notifyItemRemoved(position)
+    }
+
+
 
     class MyViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
 

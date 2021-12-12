@@ -12,7 +12,7 @@
     <string name="hint_routineSet1">Routine Set</string>
     <string name="enter_plan_title"> Please enter a Workout Plan Title </string>
     <string name="save_plan"> Save Plan </string>
-    <string name="enter_routine_title"> Please enter a Routine Title </string>
+    <string name="enter_routine_title"> Please enter a Weight </string>
     <string name="save_routine"> Save Routine </string>
     <string name="button_seeRoutine"> See Routine </string>
     <string name="button_deletePlan"> Remove </string>

@@ -54,7 +54,7 @@ class WeightTracker : AppCompatActivity() {
     }
 
     fun Home(view: android.view.View) {
-        val intent = Intent(this, Weights::class.java)
+        val intent = Intent(this, WeightList::class.java)
         startActivity(intent)
         finish()
     }

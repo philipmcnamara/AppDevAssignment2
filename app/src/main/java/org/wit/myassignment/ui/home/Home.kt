@@ -21,6 +21,7 @@ import org.wit.myassignment.ui.auth.Login
 import org.wit.myassignment.ui.contactinfo.Contact
 import timber.log.Timber
 import androidx.lifecycle.Observer
+import org.wit.myassignment.ui.weighttracking.Weights
 
 
 class Home : AppCompatActivity(),NavigationView.OnNavigationItemSelectedListener {
@@ -86,6 +87,12 @@ class Home : AppCompatActivity(),NavigationView.OnNavigationItemSelectedListener
             R.id.weightTracker -> {
                 setToolbarTitle("Weight Tracker")
                 var i = Intent(this,WeightList::class.java)
+                startActivity(i)
+                finish()
+            }
+            R.id.addWeights -> {
+                setToolbarTitle("Weight Tracker")
+                var i = Intent(this, Weights::class.java)
                 startActivity(i)
                 finish()
             }
