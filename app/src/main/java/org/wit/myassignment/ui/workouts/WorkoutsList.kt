@@ -21,7 +21,7 @@ import timber.log.Timber
 import java.util.*
 
 
-class TrainerListActivity : AppCompatActivity(), PlanListener {
+class WorkoutsList : AppCompatActivity(), PlanListener {
 
     lateinit var app: MainApp
     private lateinit var binding: TrainerListBinding
@@ -92,7 +92,7 @@ class TrainerListActivity : AppCompatActivity(), PlanListener {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.item_add -> {
-                val launcherIntent = Intent(this, TrainerActivity::class.java)
+                val launcherIntent = Intent(this, Workouts::class.java)
                 startActivityForResult(launcherIntent,0)
             }
             R.id.item_add -> {
@@ -112,7 +112,7 @@ class TrainerListActivity : AppCompatActivity(), PlanListener {
 
 
     override fun onPlanClick(plan: TrainerModel) {
-        val launcherIntent = Intent(this, TrainerActivity::class.java)
+        val launcherIntent = Intent(this, Workouts::class.java)
         launcherIntent.putExtra("plan_edit", plan)
         refreshIntentLauncher.launch(launcherIntent)
     }

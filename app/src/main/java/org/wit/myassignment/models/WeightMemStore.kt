@@ -8,7 +8,7 @@ internal fun getRoutineId(): Long {
     return theLastId++
 }
 
-
+/*
 class WeightMemStore : WeightStore {
 
     val weights = ArrayList<WeightModel>()
@@ -45,4 +45,6 @@ class WeightMemStore : WeightStore {
     }
 
 }
+
+ */
 

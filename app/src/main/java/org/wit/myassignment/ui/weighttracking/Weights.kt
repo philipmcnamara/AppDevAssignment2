@@ -7,24 +7,29 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.MutableLiveData
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import kotlinx.android.synthetic.main.weights.*
 import org.wit.myassignment.R
 import org.wit.myassignment.databinding.WeightsBinding
 import org.wit.myassignment.main.MainApp
-import org.wit.myassignment.models.WeightModel
+import org.wit.myassignment.ui.auth.LoggedInViewModel
 import org.wit.myassignment.ui.data.WeightData
-import org.wit.myassignment.ui.home.Home
 import timber.log.Timber
 import timber.log.Timber.i
 
 class Weights  : AppCompatActivity() {
     private lateinit var binding: WeightsBinding
     private lateinit var database : DatabaseReference
-    var weight = WeightModel()
+    var weight = WeightData()
     lateinit var app: MainApp
+    lateinit var user: LoggedInViewModel
+    private lateinit var weightViewModel: WeightViewModel
+    private lateinit var firebaseUser: MutableLiveData<FirebaseUser>
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,7 +63,7 @@ class Weights  : AppCompatActivity() {
 
             weight.currentWeight = binding.currentWeight.text.toString()
             weight.dayOfMeasurement = binding.dayOfMeasurement.text.toString()
-            if (weight.currentWeight.isEmpty()) {
+            if (weight.currentWeight!!.isEmpty()) {
                 i("add Button Pressed: ${weight}")
                 Snackbar.make(it,R.string.enter_routine_title, Snackbar.LENGTH_LONG)
                     .show()
@@ -71,9 +76,18 @@ class Weights  : AppCompatActivity() {
                     //firebase link
                     val currentWeight = binding.currentWeight.text.toString()
                     val dayOfMeasurement = binding.dayOfMeasurement.text.toString()
+                    //val uid = firebaseUser.value!!.uid
                     database = FirebaseDatabase.getInstance().getReference("weightData")
 
                     val WeightData = WeightData(currentWeight, dayOfMeasurement)
+
+
+/*
+                    weightViewModel.addWeight(loggedInViewModel.liveFirebaseUser,
+                        WeightData(currentWeight = currentWeight,dayOfMeasurement = dayOfMeasurement,
+                            email = loggedInViewModel.liveFirebaseUser.value?.email!!))
+
+ */
 
                     database.child("Day of Measurement : $dayOfMeasurement").setValue(WeightData).addOnSuccessListener {
 
@@ -83,8 +97,11 @@ class Weights  : AppCompatActivity() {
                     }.addOnFailureListener{
                         Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show()
                     }
+
                     //app.weights.create(weight.copy())
                     i("add Button Pressed: ${weight}")
+
+
                 }
             }
             setResult(RESULT_OK)
@@ -94,25 +111,16 @@ class Weights  : AppCompatActivity() {
         }
     }
 
+
+
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.menu_main, menu)
+        menuInflater.inflate(R.menu.menu_plan, menu)
         return super.onCreateOptionsMenu(menu)
     }
 
-
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.item_cancel -> {
-                finish()
-            }
-            R.id.item_home -> {
-
-                Timber.i("HomeFragment Button Clicked")
-                //changeFragment(Workouts())
-                val intent = Intent(this, Home::class.java)
-                startActivity(intent)
-                finish()
-            }
+            R.id.item_cancel -> { finish() }
         }
         return super.onOptionsItemSelected(item)
     }

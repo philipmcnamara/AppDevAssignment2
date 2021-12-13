@@ -12,7 +12,7 @@ import org.wit.myassignment.main.MainApp
 import org.wit.myassignment.models.TrainerModel
 import timber.log.Timber.i
 
-class TrainerActivity  : AppCompatActivity() {
+class Workouts  : AppCompatActivity() {
     private lateinit var binding: TrainerBinding
     var plan = TrainerModel()
     lateinit var app: MainApp

@@ -15,7 +15,7 @@ import org.wit.myassignment.R
 import org.wit.myassignment.ui.bmi.BMI
 import org.wit.myassignment.ui.weighttracking.WeightList
 import org.wit.myassignment.ui.settings.SettingsActivity
-import org.wit.myassignment.ui.workouts.TrainerListActivity
+import org.wit.myassignment.ui.workouts.WorkoutsList
 import org.wit.myassignment.ui.auth.LoggedInViewModel
 import org.wit.myassignment.ui.auth.Login
 import org.wit.myassignment.ui.contactinfo.Contact
@@ -74,7 +74,7 @@ class Home : AppCompatActivity(),NavigationView.OnNavigationItemSelectedListener
             R.id.workouts -> {
                 setToolbarTitle("Workouts")
                 //changeFragment(Workouts())
-                val intent = Intent(this, TrainerListActivity::class.java)
+                val intent = Intent(this, WorkoutsList::class.java)
                 startActivity(intent)
                 finish()
             }

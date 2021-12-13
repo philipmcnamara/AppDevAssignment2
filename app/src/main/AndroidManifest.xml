@@ -46,7 +46,7 @@
             android:exported="true"
             android:theme="@style/Theme.DrawerMenu.NoActionBar" />
         <activity
-            android:name=".ui.workouts.TrainerListActivity"
+            android:name=".ui.workouts.WorkoutsList"
             android:exported="true"
             android:theme="@style/Theme.MyAssignment.NoActionBar">
             <intent-filter>
@@ -55,7 +55,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.workouts.TrainerActivity" />
+        <activity android:name=".ui.workouts.Workouts" />
         <activity
             android:name=".ui.weighttracking.WeightList"
             android:exported="true"
