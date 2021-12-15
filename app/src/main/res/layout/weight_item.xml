@@ -73,7 +73,6 @@
                 android:contentDescription="TODO"
                 app:srcCompat="@drawable/ic_action_delete" />
 
-
         </LinearLayout>
 
 

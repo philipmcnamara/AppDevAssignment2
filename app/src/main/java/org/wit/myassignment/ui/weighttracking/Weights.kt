@@ -76,18 +76,10 @@ class Weights  : AppCompatActivity() {
                     //firebase link
                     val currentWeight = binding.currentWeight.text.toString()
                     val dayOfMeasurement = binding.dayOfMeasurement.text.toString()
-                    //val uid = firebaseUser.value!!.uid
+
                     database = FirebaseDatabase.getInstance().getReference("weightData")
 
                     val WeightData = WeightData(currentWeight, dayOfMeasurement)
-
-
-/*
-                    weightViewModel.addWeight(loggedInViewModel.liveFirebaseUser,
-                        WeightData(currentWeight = currentWeight,dayOfMeasurement = dayOfMeasurement,
-                            email = loggedInViewModel.liveFirebaseUser.value?.email!!))
-
- */
 
                     database.child("Day of Measurement : $dayOfMeasurement").setValue(WeightData).addOnSuccessListener {
 

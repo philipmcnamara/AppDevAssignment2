@@ -20,6 +20,8 @@ class WeightAdapter(private val weightList : ArrayList<WeightData>) : RecyclerVi
 
         val currentItem = weightList[position]
 
+        val currentPosition = weightList[holder.adapterPosition]
+
         holder.currentWeight.text = currentItem.currentWeight
         holder.dayOfMeasurement.text = currentItem.dayOfMeasurement
     }

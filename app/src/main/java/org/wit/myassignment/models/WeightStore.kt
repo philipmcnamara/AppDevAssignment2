@@ -24,8 +24,8 @@ interface WeightStore {
     fun findById(userid:String, weightid: String,
                  weight: MutableLiveData<WeightData>)
     fun create(firebaseUser: MutableLiveData<FirebaseUser>, weight: WeightData)
-    fun delete(userid:String, weightid: String)
     fun update(userid:String, weightid: String, weight: WeightData)
+    fun delete( dayOfMeasurement: String)
 }
 
 

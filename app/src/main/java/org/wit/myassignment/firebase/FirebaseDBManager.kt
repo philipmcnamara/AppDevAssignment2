@@ -11,6 +11,7 @@ object FirebaseDBManager : WeightStore {
 
     var database: DatabaseReference = FirebaseDatabase.getInstance().reference
 
+
     override fun findAll(weightsList: MutableLiveData<List<WeightData>>) {
         TODO("Not yet implemented")
     }
@@ -67,11 +68,10 @@ object FirebaseDBManager : WeightStore {
         database.updateChildren(childAdd)
     }
 
-    override fun delete(userid: String, weightid: String) {
+    override fun delete(dayOfMeasurement: String) {
+        database.child("weightData").child(dayOfMeasurement)
         val childDelete : MutableMap<String, Any?> = HashMap()
-        childDelete["/weights/$weightid"] = null
-        childDelete["/user-weightData/$userid/$weightid"] = null
-
+        childDelete["/weightData/$dayOfMeasurement"] = null
         database.updateChildren(childDelete)
     }
 
