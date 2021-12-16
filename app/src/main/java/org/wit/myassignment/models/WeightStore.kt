@@ -13,11 +13,12 @@ interface WeightStore {
     fun delete(id: String)
 }
 
- */
+
 
 interface WeightStore {
     fun findAll(weightsList:
-                MutableLiveData<List<WeightData>>)
+                MutableLiveData<List<WeightData>>): MutableLiveData<List<WeightData>>
+
     fun findAll(userid:String,
                 weightsList:
                 MutableLiveData<List<WeightData>>)
@@ -27,7 +28,14 @@ interface WeightStore {
     fun update(userid:String, weightid: String, weight: WeightData)
     fun delete( dayOfMeasurement: String)
 }
+ */
 
 
-
-
+interface WeightStore {
+    suspend fun findAll(): List<WeightData>
+    suspend fun create(weight: WeightData)
+    suspend fun update(weight: WeightData)
+    suspend fun findById(id:Long) : WeightData?
+    suspend fun delete(weight: WeightData)
+    suspend fun clear()
+}

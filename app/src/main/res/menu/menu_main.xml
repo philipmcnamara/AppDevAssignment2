@@ -21,5 +21,9 @@
         android:icon="@android:drawable/ic_menu_add"
         android:title="@string/menu_addPlan"
         app:showAsAction="always" />
+    <item
+        android:id="@+id/item_delete"
+        android:title="@string/menu_deleteWeight"
+        app:showAsAction="always" />
 
 </menu>

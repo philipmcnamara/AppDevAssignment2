@@ -6,7 +6,7 @@ import com.google.firebase.database.*
 import org.wit.myassignment.models.WeightStore
 import org.wit.myassignment.ui.data.WeightData
 import timber.log.Timber
-
+/*
 object FirebaseDBManager : WeightStore {
 
     var database: DatabaseReference = FirebaseDatabase.getInstance().reference
@@ -87,3 +87,5 @@ object FirebaseDBManager : WeightStore {
 
 
 }
+
+ */

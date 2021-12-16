@@ -7,7 +7,6 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.MutableLiveData
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseUser
@@ -17,6 +16,7 @@ import org.wit.myassignment.R
 import org.wit.myassignment.databinding.WeightsBinding
 import org.wit.myassignment.main.MainApp
 import org.wit.myassignment.ui.auth.LoggedInViewModel
+//import org.wit.myassignment.ui.data.FireStore
 import org.wit.myassignment.ui.data.WeightData
 import timber.log.Timber
 import timber.log.Timber.i
@@ -24,10 +24,12 @@ import timber.log.Timber.i
 class Weights  : AppCompatActivity() {
     private lateinit var binding: WeightsBinding
     private lateinit var database : DatabaseReference
+    //private lateinit var fireBind : FireStore
     var weight = WeightData()
+    val weights = ArrayList<WeightData>()
     lateinit var app: MainApp
     lateinit var user: LoggedInViewModel
-    private lateinit var weightViewModel: WeightViewModel
+    //private lateinit var weightViewModel: WeightViewModel
     private lateinit var firebaseUser: MutableLiveData<FirebaseUser>
 
 
@@ -73,25 +75,17 @@ class Weights  : AppCompatActivity() {
                     i("add Button Pressed: ${weight}")
                 } else {
 
+
                     //firebase link
                     val currentWeight = binding.currentWeight.text.toString()
                     val dayOfMeasurement = binding.dayOfMeasurement.text.toString()
-
                     database = FirebaseDatabase.getInstance().getReference("weightData")
 
-                    val WeightData = WeightData(currentWeight, dayOfMeasurement)
+                    create(weight)
 
-                    database.child("Day of Measurement : $dayOfMeasurement").setValue(WeightData).addOnSuccessListener {
 
-                        Timber.i("Entered data base ${database}")
-
-                        Toast.makeText(this, "Sucessfully saved", Toast.LENGTH_SHORT).show()
-                    }.addOnFailureListener{
-                        Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show()
-                    }
-
-                    //app.weights.create(weight.copy())
                     i("add Button Pressed: ${weight}")
+
 
 
                 }
@@ -117,4 +111,12 @@ class Weights  : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
+     fun create(weight: WeightData) {
+        val key = database.child("weightData").child("weights").push().key
+        key?.let {
+            weight.fbId = key
+            weights.add(weight)
+            database.child("weights").child(key).setValue(weight)
+        }
+    }
 }

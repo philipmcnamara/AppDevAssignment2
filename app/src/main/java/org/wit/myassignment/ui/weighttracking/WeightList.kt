@@ -3,6 +3,7 @@ package org.wit.myassignment.ui.weighttracking
 import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
+import android.view.View.inflate
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -10,6 +11,7 @@ import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.trainer_list.*
 import org.wit.myassignment.R
 import org.wit.myassignment.adapters.WeightAdapter
+import org.wit.myassignment.databinding.BmiBinding.inflate
 import org.wit.myassignment.ui.data.WeightData
 import org.wit.myassignment.ui.home.Home
 import timber.log.Timber
@@ -21,9 +23,14 @@ class WeightList : AppCompatActivity() {
     private lateinit var weightRecyclerview : RecyclerView
     private lateinit var weightArrayList : ArrayList<WeightData>
     lateinit var loader : AlertDialog
-    private lateinit var weightViewModel : WeightViewModel
+    //private lateinit var weightViewModel : WeightViewModel
+    private lateinit var binding: WeightList
+
 
     var database: DatabaseReference = FirebaseDatabase.getInstance().reference
+
+
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,7 +49,7 @@ class WeightList : AppCompatActivity() {
 
     private fun getUserData() {
 
-        dbref = FirebaseDatabase.getInstance().getReference("weightData")
+        dbref = FirebaseDatabase.getInstance().getReference("weightData").child("weights")
         dbref.addValueEventListener(object : ValueEventListener {
 
             override fun onDataChange(snapshot: DataSnapshot) {
@@ -64,6 +71,9 @@ class WeightList : AppCompatActivity() {
         })
 
     }
+
+
+
 /*
     fun deleteWeight(viewHolder: RecyclerView.ViewHolder){
 
@@ -90,7 +100,7 @@ class WeightList : AppCompatActivity() {
         val adapter = recyclerView.adapter as WeightAdapter
 
         adapter.removeAt(viewHolder.adapterPosition)
-        weightViewModel.delete(weightViewModel.dayOfMeasurement)
+        //weightViewModel.delete(weightViewModel.dayOfMeasurement)
 
 
     }

@@ -1,5 +1,5 @@
 package org.wit.myassignment.ui.weighttracking
-
+/*
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -48,3 +48,5 @@ class WeightViewModel : ViewModel() {
     }
 
 }
+
+ */
