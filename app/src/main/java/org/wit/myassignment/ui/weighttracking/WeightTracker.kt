@@ -8,6 +8,7 @@ import com.androidplot.xy.*
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.weight_tracker.*
 import kotlinx.android.synthetic.main.weights.*
+import kotlinx.coroutines.awaitAll
 import org.wit.myassignment.R
 import org.wit.myassignment.adapters.WeightAdapter
 import org.wit.myassignment.main.MainApp
@@ -45,7 +46,8 @@ class WeightTracker : AppCompatActivity() {
                 //this fireData contains a full arrayList
                 //System.out.println(fireData)
                 // Graph will not work in here!!
-                populateList(fireData)
+               // populateList(fireData)
+               // populateGraph(daysList, weightList)
 
 
             }
@@ -54,47 +56,55 @@ class WeightTracker : AppCompatActivity() {
             }
         })
             //Graph will work here but the Data will not get sent into it!
-            //System.out.println(fireData)
-
-           // val daysArray: Array<Int> = daysList.toTypedArray()
-            //val weightArray: Array<Int> = weightList.toTypedArray()
-            val daysArray = arrayListOf(1,2,3,4,5,6,7,8,9,10)
-            val weightArray = arrayOf(84,82,81,83,86,85,81,79,75)
-            //System.out.println(daysArray[0])
-            // System.out.println(weightArray[1])
+            System.out.println(populateList(fireData))
+        drawGraph(daysList, weightList)
 
 
-            val series1 : XYSeries = SimpleXYSeries(Arrays.asList(* weightArray), SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, "Days Tracked")
-
-            val series1Format = LineAndPointFormatter(Color.BLUE, Color.BLACK, null, null)
-
-            plot.addSeries(series1,series1Format)
-
-            plot.graph.getLineLabelStyle(XYGraphWidget.Edge.BOTTOM).format = object : Format() {
-                override fun format(
-                    obj: Any?,
-                    toAppendTo: StringBuffer?,
-                    pos: FieldPosition?
-                ): StringBuffer? {
-                    val i = Math.round((obj as Number).toFloat())
-                    return toAppendTo?.append(daysArray[i])
-                }
-
-                override fun parseObject(source: String?, pos: ParsePosition?): Any? {
-                    return null
-                }
-            }
-            PanZoom.attach(plot)
     }
 
 
     fun populateList(fireData : ArrayList<WeightData>){
         //firebase data here is and empty array, Need to call the data from line 39
-        for (it in fireData) {
-            daysList.add(it.dayOfMeasurement!!.toInt())
-           // weightList.add(it.currentWeight!!.toInt())
+        for (content in fireData) {
+            daysList.add(content.dayOfMeasurement!!.toInt())
+            weightList.add(content.currentWeight!!.toInt())
             //System.out.println(fireData)
         }
+        //drawGraph(daysList, weightList)
+    }
+
+    fun drawGraph (days: ArrayList<Int>, weight: ArrayList<Int>){
+
+        System.out.println(fireData)
+        //val daysArray: Array<Int> = daysList.toTypedArray()
+        //val weightArray: Array<Int> = weightList.toTypedArray()
+        val daysArray = arrayListOf(1,2,3,4,5,6,7,8,9,10)
+        val weightArray = arrayOf(84,82,81,83,86,85,81,79,75)
+        //System.out.println(daysArray[0])
+        // System.out.println(weightArray[1])
+
+
+        val series1 : XYSeries = SimpleXYSeries(Arrays.asList(* weightArray), SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, "Days Tracked")
+
+        val series1Format = LineAndPointFormatter(Color.BLUE, Color.BLACK, null, null)
+
+        plot.addSeries(series1,series1Format)
+
+        plot.graph.getLineLabelStyle(XYGraphWidget.Edge.BOTTOM).format = object : Format() {
+            override fun format(
+                obj: Any?,
+                toAppendTo: StringBuffer?,
+                pos: FieldPosition?
+            ): StringBuffer? {
+                val i = Math.round((obj as Number).toFloat())
+                return toAppendTo?.append(daysArray[i])
+            }
+
+            override fun parseObject(source: String?, pos: ParsePosition?): Any? {
+                return null
+            }
+        }
+        PanZoom.attach(plot)
     }
 
 
